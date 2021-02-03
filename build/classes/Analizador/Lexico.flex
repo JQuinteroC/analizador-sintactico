@@ -145,8 +145,6 @@ espacio=[ ,\t,\r,\n,\f]+
 ( ";" ) {lexemas=yytext(); return P_coma;}
 /* Punto */
 ( "." ) {lexemas=yytext(); return Punto;}
-/* Coma */
-( "," ) {return new Symbol(sym.Coma, yychar, yyline, yytext());}
 
 /* Identificador */
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}
