@@ -10,6 +10,7 @@ public class Analizadores {
     public static void main(String[] args) throws Exception {
         String path= "../Sintactico/src/Analizador/Lexico.flex";
         String path1= "../Sintactico/src/Analizador/LexicoCup.flex";
+        System.out.println(path1);
         String[] pathSintaxis= {"-parser","Sintaxis","../Sintactico/src/Analizador/Sintaxis.cup"};
         generarAnalizador(path, path1, pathSintaxis);        
     }

@@ -148,6 +148,9 @@ espacio=[ ,\t,\r,\n,\f]+
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {return new Symbol(sym.Printf, yychar, yyline, yytext());}
 
+/* Marcador de inicio de impresion en pantalla */
+( "scanf" ) {return new Symbol(sym.Scanf, yychar, yyline, yytext());}
+
 /* Punto y coma */
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
 /* Punto */

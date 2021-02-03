@@ -141,6 +141,9 @@ espacio=[ ,\t,\r,\n,\f]+
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {lexemas=yytext(); return Printf;}
 
+/* Marcador de inicio de lectura en pantalla */
+( "scanf" ) {lexemas=yytext(); return Scanf;}
+
 /* Punto y coma */
 ( ";" ) {lexemas=yytext(); return P_coma;}
 /* Punto */
