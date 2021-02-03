@@ -152,8 +152,6 @@ espacio=[ ,\t,\r,\n,\f]+
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
 /* Punto */
 ( "." ) {return new Symbol(sym.Punto, yychar, yyline, yytext());}
-/* Coma */
-( "," ) {return new Symbol(sym.Coma, yychar, yyline, yytext());}
 
 /* Identificador */
 {L}({L}|{D})* {return new Symbol(sym.Identificador, yychar, yyline, yytext());}
