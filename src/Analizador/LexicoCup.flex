@@ -1,5 +1,11 @@
 package Analizador;
 import java_cup.runtime.Symbol;
+
+/* 
+   José Luis Quintero Cañizalez
+   Edison Mauricio Riaño Alvarado
+*/
+
 %%
 %class LexicoCup
 %type java_cup.runtime.Symbol
