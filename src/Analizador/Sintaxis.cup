@@ -35,7 +35,10 @@ start with INICIO;
 INICIO ::= 
     T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
     Void Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
-    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c
+    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    T_int Main Parent_a Parent_c Llave_a Llave_c |
+    Void Main Parent_a Parent_c Llave_a Llave_c |
+    Main Parent_a Parent_c Llave_a Llave_c 
 ;
 
 SENTENCIA ::= 
