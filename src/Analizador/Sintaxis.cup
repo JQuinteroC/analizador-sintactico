@@ -25,10 +25,12 @@ terminal Linea, Comillas, If, Else, Do, While, For, Int, Switch,
     Op_desDer, Op_desIzq, 
     Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
     Void, Printf, Main, P_coma, Punto, Identificador, Coma,
+    Scanf,
     Numero, ERROR, Default;
 
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, PRINTF, SENTENCIA_PRINTF;
+    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, PRINTF, SENTENCIA_PRINTF,
+    SCANF, SENTENCIA_SCANF;
 
 start with INICIO;
 
@@ -52,7 +54,9 @@ SENTENCIA ::=
     SENTENCIA FOR |
     FOR |
     SENTENCIA PRINTF |
-    PRINTF 
+    PRINTF |
+    SENTENCIA SCANF |
+    SCANF |
 ;
 
 DECLARACION ::= 
@@ -177,6 +181,16 @@ PRINTF ::=
     Printf Parent_a Comillas SENTENCIA_PRINTF Comillas Coma Identificador Parent_c P_coma
 ;
 
+
 SENTENCIA_PRINTF ::=
+    Identificador
+;
+
+SCANF ::=
+    Scanf Parent_a Comillas Comillas Parent_c P_coma |
+    Scanf Parent_a Comillas SENTENCIA_SCANF Comillas Coma Identificador Parent_c P_coma
+;
+
+SENTENCIA_SCANF ::=
     Identificador
 ;
