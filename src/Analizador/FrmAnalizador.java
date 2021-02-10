@@ -41,6 +41,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
         txtAnalizarSin = new javax.swing.JTextArea();
         btnBorrarSin = new javax.swing.JButton();
         btnBorrarCod = new javax.swing.JButton();
+        btnGenObjeto = new javax.swing.JButton();
+        btmEjecutable = new javax.swing.JButton();
+        btnGenEjecutable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +107,30 @@ public class FrmAnalizador extends javax.swing.JFrame {
             }
         });
 
+        btnGenObjeto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnGenObjeto.setText("Generar Objeto");
+        btnGenObjeto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenObjetoActionPerformed(evt);
+            }
+        });
+
+        btmEjecutable.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btmEjecutable.setText("Ejecutar");
+        btmEjecutable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmEjecutableActionPerformed(evt);
+            }
+        });
+
+        btnGenEjecutable.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnGenEjecutable.setText("Generar Ejecutable");
+        btnGenEjecutable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenEjecutableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,6 +158,14 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnGenObjeto)
+                .addGap(18, 18, 18)
+                .addComponent(btnGenEjecutable)
+                .addGap(18, 18, 18)
+                .addComponent(btmEjecutable)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,15 +180,21 @@ public class FrmAnalizador extends javax.swing.JFrame {
                         .addComponent(btnBorrarCod)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnASintactico)
+                            .addComponent(btnBorrarSin))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnASintactico)
-                    .addComponent(btnBorrarSin))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGenObjeto)
+                    .addComponent(btmEjecutable)
+                    .addComponent(btnGenEjecutable))
+                .addContainerGap())
         );
 
         pack();
@@ -402,6 +443,36 @@ public class FrmAnalizador extends javax.swing.JFrame {
         Resultado.setText(null);
     }//GEN-LAST:event_btnBorrarCodActionPerformed
 
+    private void btnGenObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenObjetoActionPerformed
+
+        try {
+            String[] intermedio = {"intermedio.bat"};
+            Runtime.getRuntime().exec(intermedio);
+            String[] gassembler = {"ensamblador.bat"};
+            Runtime.getRuntime().exec(gassembler);
+            System.out.println("Ejecucion del convertidor de cpp a assembler");
+        } catch (IOException ex) {
+             System.out.println(ex);
+        }
+        
+    }//GEN-LAST:event_btnGenObjetoActionPerformed
+
+    private void btmEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmEjecutableActionPerformed
+        try {
+            String[] gobjeto = {"objeto.bat"};
+            Runtime.getRuntime().exec(gobjeto);
+            String[] gejecutable = {"ejecutable.bat"};
+            Runtime.getRuntime().exec(gejecutable);
+            System.out.println("Ejecucion del convertidor de cpp a assembler");
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_btmEjecutableActionPerformed
+
+    private void btnGenEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEjecutableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenEjecutableActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -430,12 +501,15 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Resultado;
+    private javax.swing.JButton btmEjecutable;
     private javax.swing.JButton btnALexico;
     private javax.swing.JButton btnASintactico;
     private javax.swing.JButton btnArchivo;
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnBorrarCod;
     private javax.swing.JButton btnBorrarSin;
+    private javax.swing.JButton btnGenEjecutable;
+    private javax.swing.JButton btnGenObjeto;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
