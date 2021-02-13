@@ -63,6 +63,8 @@ espacio=[ ,\t,\r,\n,\f]+
 ( "*" ) {lexemas=yytext(); return Multiplicacion;}
 /* Operador Division */
 ( "/" ) {lexemas=yytext(); return Division;}
+/* Operador Resto */
+( "%" ) {lexemas=yytext(); return Resto;}
 
 /* Operadores logicos */
 /* AND */
@@ -148,6 +150,29 @@ espacio=[ ,\t,\r,\n,\f]+
 ( ";" ) {lexemas=yytext(); return P_coma;}
 /* Punto */
 ( "." ) {lexemas=yytext(); return Punto;}
+/* Dos puntos */
+( ":" ) {lexemas=yytext(); return DPuntos;}
+
+/* Numeral */
+( "#" ) {lexemas=yytext(); return Numeral;}
+
+/* Break */
+( "break" ) {lexemas=yytext(); return Break;}
+
+/* Define */
+( "define" ) {lexemas=yytext(); return Define;}
+
+/* Include */
+( "include" ) {lexemas=yytext(); return Include;}
+
+/* Cin */
+( "cin" ) {lexemas=yytext(); return Cin;}
+
+/* Cout */
+( "cout" ) {lexemas=yytext(); return Cout;}
+
+/* Case */
+( "case" ) {lexemas=yytext(); return Case;}
 
 /* Identificador */
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}

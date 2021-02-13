@@ -1,10 +1,7 @@
 package Analizador;
 import java_cup.runtime.Symbol;
 
-/* 
-   José Luis Quintero Cañizalez
-   Edison Mauricio Riaño Alvarado
-*/
+/*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
 
 %%
 %class LexicoCup
@@ -76,6 +73,8 @@ espacio=[ ,\t,\r,\n,\f]+
 ( "*" ) {return new Symbol(sym.Multiplicacion, yychar, yyline, yytext());}
 /* Operador Division */
 ( "/" ) {return new Symbol(sym.Division, yychar, yyline, yytext());}
+/* Operador Resto */
+( "%" ) {return new Symbol(sym.Resto, yychar, yyline, yytext());}
 
 /* Operadores logicos */
 /* AND */
@@ -161,6 +160,29 @@ espacio=[ ,\t,\r,\n,\f]+
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
 /* Punto */
 ( "." ) {return new Symbol(sym.Punto, yychar, yyline, yytext());}
+/* Dos puntos */
+( ":" ) {return new Symbol(sym.DPuntos, yychar, yyline, yytext());}
+
+/* Numeral */
+( "#" ) {return new Symbol(sym.Numeral, yychar, yyline, yytext());}
+
+/* Break */
+( "break" ) {return new Symbol(sym.Break, yychar, yyline, yytext());}
+
+/* Define */
+( "define" ) {return new Symbol(sym.Define, yychar, yyline, yytext());}
+
+/* Include */
+( "include" ) {return new Symbol(sym.Include, yychar, yyline, yytext());}
+
+/* Cin */
+( "cin" ) {return new Symbol(sym.Cin, yychar, yyline, yytext());}
+
+/* Cout */
+( "cout" ) {return new Symbol(sym.Cout, yychar, yyline, yytext());}
+
+/* Case */
+( "case" ) {return new Symbol(sym.Case, yychar, yyline, yytext());}
 
 /* Identificador */
 {L}({L}|{D})* {return new Symbol(sym.Identificador, yychar, yyline, yytext());}

@@ -2,6 +2,8 @@ package Analizador;
 
 import java_cup.runtime.Symbol;
 
+/*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
+
 parser code
 {:
     private Symbol s;
@@ -15,30 +17,33 @@ parser code
 }
 :};
 
-terminal Linea, Comillas, If, Else, Do, While, For, Int, Switch,
+terminal Linea, Comillas, If, Else, Do, While, For, Switch, Case, Break,
     Cadena, T_int, T_double, T_long, T_char, T_float, T_byte,
-    Igual, Suma, Resta, Multiplicacion, Division, 
+    Igual, Suma, Resta, Multiplicacion, Division, Resto,
     Op_igual, Op_diferente,Op_menor, Op_mayor, Op_or, Op_and, Op_menorE, Op_mayorE,
     Op_not, Op_orB, Op_andB, Op_boolFalse, Op_boolTrue,
-    Op_atribucion, Op_incremento, Op_decremento,
-    Op_asigResta, Op_asigDiv,  Op_asigMult, Op_asigSuma, Op_asigResto,
+    Op_incremento, Op_decremento,
+    Op_asigResta, Op_asigDiv, Op_asigMult, Op_asigSuma, Op_asigResto,
     Op_desDer, Op_desIzq, 
+    Cout, Cin,
     Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
-    Void, Printf, Scanf, Main, P_coma, Punto, Identificador,
-    Numero, ERROR, Default;
+    Void, Printf, Scanf, Main, P_coma, Punto, Identificador, DPuntos,
+    Numeral, Numero, ERROR, Default, Define, Include;
 
-non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, PRINTF, SCANF, SENTENCIA_SCANF, SENTENCIA_PRINTF;
+non terminal INICIO, SENTENCIA, DECLARACION, IF, IF_ELSE, VACIO, WHILE, DO_WHILE, FOR,
+    SENTENCIA_BOOLEANA, ASIGNACION, DEFINE, PRINTF, SCANF,
+    INCLUDE, SWITCH, CIN, COUT, DECLARACION_ARITMETICA, CASE, SENTENCIA_FOR,
+    DECLARACION_FOR;
 
 start with INICIO;
 
 INICIO ::= 
-    T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
-    Void Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
-    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
-    T_int Main Parent_a Parent_c Llave_a Llave_c |
-    Void Main Parent_a Parent_c Llave_a Llave_c |
-    Main Parent_a Parent_c Llave_a Llave_c 
+    T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c Linea |
+    Void Main Parent_a Parent_c Llave_a SENTENCIA Llave_c Linea |
+    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c Linea |
+    T_int Main Parent_a Parent_c Llave_a Llave_c Linea |
+    Void Main Parent_a Parent_c Llave_a Llave_c Linea |
+    Main Parent_a Parent_c Llave_a Llave_c Linea
 ;
 
 SENTENCIA ::= 
@@ -57,57 +62,100 @@ SENTENCIA ::=
     SENTENCIA PRINTF |
     PRINTF |
     SENTENCIA SCANF |
-    SCANF
+    SCANF |
+    SENTENCIA SWITCH |
+    SWITCH |
+    SENTENCIA ASIGNACION |
+    ASIGNACION |
+    SENTENCIA DEFINE |
+    DEFINE |
+    SENTENCIA INCLUDE |
+    INCLUDE |
+    SENTENCIA CIN |
+    CIN |
+    SENTENCIA COUT |
+    COUT |
+    VACIO |
+    Linea
 ;
 
-DECLARACION ::= 
+DECLARACION ::=
     T_int Identificador P_coma | 
-    T_int Identificador Op_atribucion Numero P_coma |
-    T_int Identificador Op_atribucion Numero Identificador Op_atribucion Numero P_coma |
-    T_int Identificador Op_atribucion Numero Punto Numero P_coma |
     T_int Identificador Igual Numero P_coma |
-    T_int Identificador Igual Numero Punto Numero P_coma |
-    T_int Identificador Op_incremento P_coma | 
-    T_int Op_incremento Identificador P_coma | 
 
-    Cadena Identificador Op_atribucion Comillas Comillas P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
-    Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
     Cadena Identificador Igual Comillas Identificador Comillas P_coma |
 
     T_double Identificador P_coma | 
-    T_double Identificador Op_atribucion Numero Punto Numero P_coma |
     T_double Identificador Igual Numero Punto Numero P_coma |
-    T_double Identificador Op_incremento P_coma | 
-    T_double Op_incremento Identificador P_coma | 
 
     T_long Identificador P_coma | 
-    T_long Identificador Op_atribucion Numero Punto Numero P_coma |
-    T_long Identificador Igual Numero Punto Numero P_coma |
-    T_long Identificador Op_incremento P_coma | 
-    T_long Op_incremento Identificador P_coma | 
+    T_long Identificador Igual Numero P_coma |
 
     T_float Identificador P_coma | 
-    T_float Identificador Op_atribucion Numero Punto Numero P_coma |
     T_float Identificador Igual Numero Punto Numero P_coma |
-    T_float Identificador Op_incremento P_coma | 
-    T_float Op_incremento Identificador P_coma | 
 
-    T_char Identificador Op_atribucion Comillas Comillas P_coma |
     T_char Identificador Igual Comillas Comillas P_coma |
-    T_char Identificador Op_atribucion Comillas Identificador Comillas P_coma |
-    T_char Identificador Igual Comillas Identificador Comillas P_coma
+    T_char Identificador Igual Comillas Identificador Comillas P_coma|
+
+    Identificador Igual Comillas Comillas P_coma | 
+    Identificador Igual Comillas Identificador Comillas P_coma |
+
+    DECLARACION_ARITMETICA
+;
+
+DECLARACION_ARITMETICA ::=
+    Identificador Op_incremento P_coma|
+    Identificador Op_decremento P_coma|
+
+    Identificador Op_asigResta Identificador P_coma|
+    Identificador Op_asigDiv Identificador P_coma|
+    Identificador Op_asigMult Identificador P_coma|
+    Identificador Op_asigSuma Identificador P_coma|
+    Identificador Op_asigResto Identificador P_coma|
+    
+    T_int Identificador Igual Numero Suma Numero P_coma |
+    T_int Identificador Igual Numero Resta Numero P_coma |
+    T_int Identificador Igual Numero Multiplicacion Numero P_coma |
+    T_int Identificador Igual Numero Division Numero P_coma |
+    T_int Identificador Igual Numero Resto Numero P_coma | 
+
+    T_double Identificador Igual Numero Punto Numero Suma Numero Punto Numero P_coma |
+    T_double Identificador Igual Numero Punto Numero Resta Numero Punto Numero P_coma |
+    T_double Identificador Igual Numero Punto Numero Multiplicacion Numero Punto Numero P_coma |
+    T_double Identificador Igual Numero Punto Numero Division Numero Punto Numero P_coma |
+
+    T_long Identificador Igual Numero Suma Numero P_coma |
+    T_long Identificador Igual Numero Resta Numero P_coma |
+    T_long Identificador Igual Numero Multiplicacion Numero P_coma |
+    T_long Identificador Igual Numero Division Numero P_coma |
+    T_long Identificador Igual Numero Resto Numero P_coma | 
+
+    T_float Identificador Igual Numero Punto Numero Suma Numero Punto Numero P_coma |
+    T_float Identificador Igual Numero Punto Numero Resta Numero Punto Numero P_coma |
+    T_float Identificador Igual Numero Punto Numero Multiplicacion Numero Punto Numero P_coma |
+    T_float Identificador Igual Numero Punto Numero Division Numero Punto Numero P_coma |
+
+    Cadena Identificador Igual Comillas Identificador Comillas Suma Comillas Identificador Comillas P_coma 
 ;
 
 IF ::= If Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
 ;
 
 SENTENCIA_BOOLEANA ::= 
+    Op_boolTrue |
+    Op_boolFalse |
+    Op_not Identificador |
+
+    Identificador Op_igual Op_boolTrue |
+    Identificador Op_igual Op_boolFalse |
     Identificador Op_igual Numero |
     Identificador Op_igual Identificador |
     Identificador Op_igual Comillas Comillas |
     Identificador Op_igual Comillas Identificador Comillas |
 
+    Identificador Op_diferente Op_boolTrue |
+    Identificador Op_diferente Op_boolFalse |
     Identificador Op_diferente Numero |
     Identificador Op_diferente Identificador |
     Identificador Op_diferente Comillas Comillas |
@@ -172,23 +220,46 @@ SENTENCIA_FOR ::=
 ;
 
 DECLARACION_FOR ::= 
-    Identificador Op_atribucion Numero |
+    Identificador Igual Numero Suma Numero|
+    Identificador Igual Numero Resta Numero|
     Identificador Op_incremento | 
-    Op_incremento Identificador
+    Identificador Op_decremento | 
+    Op_incremento Identificador |
+    Op_decremento Identificador
 ;
 
 PRINTF ::=
     Printf Parent_a Comillas Comillas Parent_c P_coma
 ;
 
-SENTENCIA_PRINTF ::=
-    Identificador
-;
-
 SCANF ::=
     Scanf Parent_a Comillas Comillas Parent_c P_coma
 ;
 
-SENTENCIA_SCANF ::=
-    Identificador
+DEFINE ::=
+    Numeral Define Identificador Numero P_coma
+;
+
+INCLUDE ::=
+    Numeral Include Comillas Identificador Comillas |
+    Numeral Include Op_menor Identificador Op_mayor
+;
+
+COUT ::=
+    Cout Op_desIzq Comillas Identificador Comillas P_coma
+;
+
+CIN ::=
+    Cin Op_desDer Comillas Identificador Comillas P_coma
+;
+
+SWITCH ::=
+    Switch Parent_a Identificador Parent_c Llave_a CASE Llave_c
+;
+
+CASE ::=
+    Case Identificador DPuntos SENTENCIA Break P_coma CASE |
+    Case Numero DPuntos SENTENCIA Break P_coma CASE |
+    Default DPuntos SENTENCIA P_coma |
+    VACIO
 ;

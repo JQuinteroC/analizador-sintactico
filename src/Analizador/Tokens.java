@@ -59,5 +59,14 @@ public enum Tokens {
     Punto,
     Identificador,
     Numero,
+    DPuntos,
+    Break,
+    Resto,
+    Numeral,
+    Cin,
+    Cout,
+    Define,
+    Include,
+    Case,
     ERROR
 }

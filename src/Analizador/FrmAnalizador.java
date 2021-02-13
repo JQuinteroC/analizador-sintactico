@@ -215,7 +215,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
             switch (token) {
                 case Linea:
                     cont++;
-                    resultado += "LINEA " + cont + "\n";
+                    resultado += "LINEA " + cont + "\t\tSIMBOLO\n";
                     break;
                 case Comillas:
                     resultado += "  <Comillas>\t\t" + lexicos.lexemas + "\n";
@@ -276,6 +276,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case Division:
                     resultado += "  <Operador division>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Resto:
+                    resultado += "  <Operador modulo>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_and:
                     resultado += "  <Operador logico AND>\t" + lexicos.lexemas + "\n";
@@ -370,6 +373,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Printf:
                     resultado += "  <Reservada printf>\t" + lexicos.lexemas + "\n";
                     break;                    
+                case Scanf:
+                    resultado += "  <Reservada scanf>\t" + lexicos.lexemas + "\n";
+                    break;                    
                 case P_coma:
                     resultado += "  <Punto y coma>\t" + lexicos.lexemas + "\n";
                     break;
@@ -378,6 +384,27 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case Identificador:
                     resultado += "  <Identificador>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case  Numeral:
+                    resultado += "  <Numeral>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case  DPuntos:
+                    resultado += "  <Dos puntos>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case  Define:
+                    resultado += "  <Define>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case  Break:
+                    resultado += "  <Break>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case  Include:
+                    resultado += "  <Include>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case  Cin:
+                    resultado += "  <Cin>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case  Cout:
+                    resultado += "  <Cout>\t\t" + lexicos.lexemas + "\n";
                     break;
                 case Numero:
                     resultado += "  <Numero>\t\t" + lexicos.lexemas + "\n";
@@ -390,7 +417,6 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
             }
         }
-
     }
 
     private void btnALexicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnALexicoActionPerformed
@@ -402,15 +428,17 @@ public class FrmAnalizador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnALexicoActionPerformed
 
     private void btnArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArchivoActionPerformed
-        JFileChooser escoger = new JFileChooser();
+        JFileChooser escoger = new JFileChooser(System.getProperty("user.dir"));
         escoger.showOpenDialog(null);
-        File arc = new File(escoger.getSelectedFile().getAbsolutePath());
-
+        
         try {
+            File arc = new File(escoger.getSelectedFile().getAbsolutePath());
             String ST = new String(Files.readAllBytes(arc.toPath()));
             Resultado.setText(ST);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(NullPointerException ex){
+            System.out.println("Archivo no seleccionado");
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         }
