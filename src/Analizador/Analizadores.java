@@ -8,10 +8,10 @@ import java.nio.file.Paths;
 
 public class Analizadores {
     public static void main(String[] args) throws Exception {
-        String path= "../Sintactico/src/Analizador/Lexico.flex";
-        String path1= "../Sintactico/src/Analizador/LexicoCup.flex";
+        String path= "src/Analizador/Lexico.flex";
+        String path1= "src/Analizador/LexicoCup.flex";
         System.out.println(path1);
-        String[] pathSintaxis= {"-parser","Sintaxis","../Sintactico/src/Analizador/Sintaxis.cup"};
+        String[] pathSintaxis= {"-parser","Sintaxis","src/Analizador/Sintaxis.cup"};
         generarAnalizador(path, path1, pathSintaxis);        
     }
     public static void generarAnalizador(String path, String path1, String[] pathSintaxis) throws IOException, Exception {
@@ -21,21 +21,21 @@ public class Analizadores {
         arc = new File(path1);
         JFlex.Main.generate(arc);
         java_cup.Main.main(pathSintaxis);
-        Path pathSymbol = Paths.get("../Sintactico/src/Analizador/sym.java");
+        Path pathSymbol = Paths.get("src/Analizador/sym.java");
         if (Files.exists(pathSymbol)) {
             Files.delete(pathSymbol);
         }
         Files.move(
-        Paths.get("../Sintactico/sym.java"), 
-        Paths.get("../Sintactico/src/Analizador/sym.java")
+        Paths.get("sym.java"), 
+        Paths.get("src/Analizador/sym.java")
         );
-        Path pathSintaxis1 = Paths.get("../Sintactico/src/Analizador/Sintaxis.java");
+        Path pathSintaxis1 = Paths.get("src/Analizador/Sintaxis.java");
         if (Files.exists(pathSintaxis1)) {
             Files.delete(pathSintaxis1);
         }
         Files.move(
-                Paths.get("../Sintactico/Sintaxis.java"), 
-                Paths.get("../Sintactico/src/Analizador/Sintaxis.java")
+                Paths.get("Sintaxis.java"), 
+                Paths.get("src/Analizador/Sintaxis.java")
         );        
     }
 }

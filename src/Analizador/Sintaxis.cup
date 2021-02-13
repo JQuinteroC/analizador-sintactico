@@ -27,7 +27,7 @@ terminal Linea, Comillas, If, Else, Do, While, For, Switch, Case, Break,
     Op_desDer, Op_desIzq, 
     Cout, Cin,
     Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
-    Void, Printf, Scanf, Main, P_coma, Punto, Identificador, DPuntos,
+    Void, Printf, Scanf, Main, P_coma, Coma, Punto, Identificador, DPuntos,
     Numeral, Numero, ERROR, Default, Define, Include;
 
 non terminal INICIO, SENTENCIA, DECLARACION, IF, IF_ELSE, VACIO, WHILE, DO_WHILE, FOR,
@@ -229,7 +229,8 @@ DECLARACION_FOR ::=
 ;
 
 PRINTF ::=
-    Printf Parent_a Comillas Comillas Parent_c P_coma
+    Printf Parent_a Comillas Comillas Parent_c P_coma |
+    Printf Parent_a Comillas Comillas Coma Identificador Parent_c P_coma
 ;
 
 SCANF ::=
