@@ -3,9 +3,12 @@ package Analizador;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java_cup.runtime.Symbol;
@@ -42,7 +45,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
         btnBorrarSin = new javax.swing.JButton();
         btnBorrarCod = new javax.swing.JButton();
         btnGenObjeto = new javax.swing.JButton();
-        btmEjecutable = new javax.swing.JButton();
+        btnEjecutar = new javax.swing.JButton();
         btnGenEjecutable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,18 +111,18 @@ public class FrmAnalizador extends javax.swing.JFrame {
         });
 
         btnGenObjeto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btnGenObjeto.setText("Generar Objeto");
+        btnGenObjeto.setText("Generar Ensamblador");
         btnGenObjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenObjetoActionPerformed(evt);
             }
         });
 
-        btmEjecutable.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btmEjecutable.setText("Ejecutar");
-        btmEjecutable.addActionListener(new java.awt.event.ActionListener() {
+        btnEjecutar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnEjecutar.setText("Ejecutar");
+        btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btmEjecutableActionPerformed(evt);
+                btnEjecutarActionPerformed(evt);
             }
         });
 
@@ -164,7 +167,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnGenEjecutable)
                 .addGap(18, 18, 18)
-                .addComponent(btmEjecutable)
+                .addComponent(btnEjecutar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -192,7 +195,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGenObjeto)
-                    .addComponent(btmEjecutable)
+                    .addComponent(btnEjecutar)
                     .addComponent(btnGenEjecutable))
                 .addContainerGap())
         );
@@ -472,11 +475,41 @@ public class FrmAnalizador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBorrarCodActionPerformed
 
     private void btnGenObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenObjetoActionPerformed
+        //Escribir Archivo
+        FileWriter fw = null;
+        
+        try
+        {
+            Path archivo = Paths.get("Programa.cpp");
+            Files.delete(archivo);
 
+            fw = new FileWriter("Programa.cpp",true);
+            fw.flush();
+            fw.write(Resultado.getText());
+
+        }
+        catch (IOException ex) 
+            {
+                ex.printStackTrace();
+            } 
+            finally 
+            {
+               if (fw!=null)
+               {  
+                   try {
+                       fw.close();
+                   } catch (IOException ex) {
+                       Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+               }
+            }
+        
+        // Ejecución
+        
         try {
-            String[] intermedio = {"intermedio.bat"};
+            String[] intermedio = {"1_Intermedio.bat"};
             Runtime.getRuntime().exec(intermedio);
-            String[] gassembler = {"ensamblador.bat"};
+            String[] gassembler = {"2_Ensamblador.bat"};
             Runtime.getRuntime().exec(gassembler);
             System.out.println("Ejecucion del convertidor de cpp a assembler");
         } catch (IOException ex) {
@@ -485,20 +518,30 @@ public class FrmAnalizador extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGenObjetoActionPerformed
 
-    private void btmEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmEjecutableActionPerformed
+    private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
+       
+        
         try {
-            String[] gobjeto = {"objeto.bat"};
+        String [] comando={"5_Correr.bat"};
+        Runtime.getRuntime().exec(comando);
+        System.out.println("Ejecucion del convertidor de cpp a assembler");
+        } catch (IOException ex) {
+        System.out.println(ex);
+        }
+        
+
+    }//GEN-LAST:event_btnEjecutarActionPerformed
+
+    private void btnGenEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEjecutableActionPerformed
+        try {
+            String[] gobjeto = {"3_Objeto.bat"};
             Runtime.getRuntime().exec(gobjeto);
-            String[] gejecutable = {"ejecutable.bat"};
+            String[] gejecutable = {"4._Ejecutable.bat"};
             Runtime.getRuntime().exec(gejecutable);
             System.out.println("Ejecucion del convertidor de cpp a assembler");
         } catch (IOException ex) {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_btmEjecutableActionPerformed
-
-    private void btnGenEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEjecutableActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnGenEjecutableActionPerformed
 
     /**
@@ -529,13 +572,13 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Resultado;
-    private javax.swing.JButton btmEjecutable;
     private javax.swing.JButton btnALexico;
     private javax.swing.JButton btnASintactico;
     private javax.swing.JButton btnArchivo;
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnBorrarCod;
     private javax.swing.JButton btnBorrarSin;
+    private javax.swing.JButton btnEjecutar;
     private javax.swing.JButton btnGenEjecutable;
     private javax.swing.JButton btnGenObjeto;
     private javax.swing.JScrollPane jScrollPane1;
