@@ -32,18 +32,59 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Define, Include, Numeral,
     Numero, ERROR, Default;
 
-non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
+non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN,
     WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE;
 
 start with INICIO;
 
+LIBRERIAS ::=
+    Include Op_menor Iostream Op_mayor |
+    Include Op_menor Identificador Op_mayor |
+    Include Op_menor Identificador Punto Identificador Op_mayor |
+
+
+    Using Namespace Std P_coma |
+
+    Include Op_menor Iostream Op_mayor Using Namespace Std P_coma|
+    Include Op_menor Identificador Op_mayor Using Namespace Std P_coma|
+    Include Op_menor Identificador Punto Identificador Op_mayor Using Namespace Std P_coma |
+
+    Include Op_menor Identificador Op_mayor Include Op_menor Identificador Op_mayor |
+    Include Op_menor Identificador Op_mayor Include Op_menor Identificador Punto Identificador Op_mayor |
+    Include Op_menor Identificador Punto Identificador Op_mayor Include Op_menor Identificador Op_mayor |
+    Include Op_menor Identificador Punto Identificador Op_mayor Include Op_menor Identificador Punto Identificador Op_mayor |
+
+    Include Op_menor Identificador Op_mayor Include Op_menor Identificador Op_mayor Using Namespace Std P_coma|
+    Include Op_menor Identificador Op_mayor Include Op_menor Identificador Punto Identificador Using Namespace Std P_coma |
+    Include Op_menor Identificador Punto Identificador Op_mayor Include Op_menor Identificador Op_mayor Using Namespace Std P_coma|
+    Include Op_menor Identificador Punto Identificador Op_mayor Include Op_menor Identificador Punto Identificador Op_mayor Using Namespace Std P_coma 
+;
 
 INICIO ::= 
-    T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    Void Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    Void Main Parent_a Parent_c Llave_a Llave_c |
+
     Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    Main Parent_a Parent_c Llave_a Llave_c |
+
+    T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
     T_int Main Parent_a Parent_c Llave_a Llave_c |
-    Main Parent_a Parent_c Llave_a Llave_c 
+
+    T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Numero P_coma Llave_c |
+    T_int Main Parent_a Parent_c Llave_a RETURN Numero P_coma Llave_c |
+    T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Identificador P_coma Llave_c |
+    
+    LIBRERIAS Void Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    LIBRERIAS Void Main Parent_a Parent_c Llave_a Llave_c |
+    LIBRERIAS Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    LIBRERIAS Main Parent_a Parent_c Llave_a Llave_c |
+    LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    LIBRERIAS T_int Main Parent_a Parent_c Llave_a Llave_c |
+    LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Numero P_coma Llave_c |
+    LIBRERIAS T_int Main Parent_a Parent_c Llave_a RETURN Numero P_coma Llave_c |
+    LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Identificador P_coma Llave_c     
 ;
+
 SENTENCIA ::= 
     SENTENCIA DECLARACION |
     DECLARACION |
@@ -58,14 +99,24 @@ SENTENCIA ::=
     SENTENCIA FOR |
     FOR
 ;
+
 DECLARACION ::= 
     T_DATO_ENTERO Identificador P_coma | 
     T_DATO_ENTERO Identificador Igual Numero P_coma |
+
+    T_DATO_ENTERO Identificador Identificador P_coma | 
+    T_DATO_ENTERO Identificador Igual Numero Identificador P_coma | 
+    T_DATO_ENTERO Identificador Identificador Igual Numero P_coma | 
+    T_DATO_ENTERO Identificador Igual Numero Identificador Igual Numero P_coma |
+
+    T_DATO_FLOTANTE Identificador P_coma |
     T_DATO_FLOTANTE Identificador Igual Numero Punto Numero P_coma |
 
+    Cadena Identificador P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
     Cadena Identificador Igual Comillas Identificador Comillas P_coma |
 
+    T_char Identificador P_coma |
     T_char Identificador Igual Comillas Comillas P_coma |
     T_char Identificador Igual Comillas Identificador Comillas P_coma
 ;
