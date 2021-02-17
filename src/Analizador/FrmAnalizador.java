@@ -13,10 +13,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java_cup.runtime.Symbol;
 import javax.swing.JFileChooser;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
  *
- * @author mdelgado
+ * @author mdelgadoh  iu
  */
 public class FrmAnalizador extends javax.swing.JFrame {
 
@@ -218,7 +222,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
             switch (token) {
                 case Linea:
                     cont++;
-                    resultado += "LINEA " + cont + "\t\tSIMBOLO\n";
+                    resultado += "LINEA " + cont + "\n";
                     break;
                 case Comillas:
                     resultado += "  <Comillas>\t\t" + lexicos.lexemas + "\n";
@@ -226,44 +230,29 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Cadena:
                     resultado += "  <Tipo de dato>\t" + lexicos.lexemas + "\n";
                     break;
-                case T_byte:
-                    resultado += "  <Tipo de dato byte>\t" + lexicos.lexemas + "\n";
-                    break;
                 case T_int:
-                    resultado += "  <Tipo de dato int>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada int>\t" + lexicos.lexemas + "\n";
+                    break;
+                case T_byte:
+                    resultado += "  <Reservada byte>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_char:
-                    resultado += "  <Tipo de dato char>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada char>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_long:
-                    resultado += "  <Tipo de dato long>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada long>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_float:
-                    resultado += "  <Tipo de dato float>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada float>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_double:
-                    resultado += "  <Tipo de dato double>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada double>\t" + lexicos.lexemas + "\n";
                     break;
                 case If:
                     resultado += "  <Reservada if>\t" + lexicos.lexemas + "\n";
                     break;
                 case Else:
                     resultado += "  <Reservada else>\t" + lexicos.lexemas + "\n";
-                    break;
-                case While:
-                    resultado += "  <Reservada while>\t" + lexicos.lexemas + "\n";
-                    break;
-                case Switch:
-                    resultado += "  <Reservada switch>\t" + lexicos.lexemas + "\n";
-                    break;
-                case Default:
-                    resultado += "  <Reservada default>\t" + lexicos.lexemas + "\n";
-                    break;
-                case For:
-                    resultado += "  <Reservada for>\t" + lexicos.lexemas + "\n";
-                    break;
-                case Do:
-                    resultado += "  <Reservada do>\t" + lexicos.lexemas + "\n";
                     break;
                 case Igual:
                     resultado += "  <Operador igual>\t" + lexicos.lexemas + "\n";
@@ -280,24 +269,24 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Division:
                     resultado += "  <Operador division>\t" + lexicos.lexemas + "\n";
                     break;
-                case Resto:
+                case Modulo:
                     resultado += "  <Operador modulo>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_and:
                     resultado += "  <Operador logico AND>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_or:
                     resultado += "  <Operador logico OR>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_not:
                     resultado += "  <Operador logico NOT>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_andB:
                     resultado += "  <Operador binario AND>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_orB:
                     resultado += "  <Operador binario OR>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_incremento:
                     resultado += "  <Operador incremento>\t" + lexicos.lexemas + "\n";
                     break;
@@ -340,8 +329,8 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Op_asigDiv:
                     resultado += "  <Operador atribucion y división>\t" + lexicos.lexemas + "\n";
                     break;
-                case Op_asigResto:
-                    resultado += "  <Operador atribucion y resto>\t" + lexicos.lexemas + "\n";
+                case Op_asigModulo:
+                    resultado += "  <Operador atribucion y modulo>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_boolTrue:
                     resultado += "  <Operador booleano True>\t" + lexicos.lexemas + "\n";
@@ -376,9 +365,6 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Printf:
                     resultado += "  <Reservada printf>\t" + lexicos.lexemas + "\n";
                     break;                    
-                case Scanf:
-                    resultado += "  <Reservada scanf>\t" + lexicos.lexemas + "\n";
-                    break;                    
                 case P_coma:
                     resultado += "  <Punto y coma>\t" + lexicos.lexemas + "\n";
                     break;
@@ -387,27 +373,6 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case Identificador:
                     resultado += "  <Identificador>\t\t" + lexicos.lexemas + "\n";
-                    break;
-                case  Numeral:
-                    resultado += "  <Numeral>\t\t" + lexicos.lexemas + "\n";
-                    break;
-                case  DPuntos:
-                    resultado += "  <Dos puntos>\t\t" + lexicos.lexemas + "\n";
-                    break;
-                case  Define:
-                    resultado += "  <Define>\t\t" + lexicos.lexemas + "\n";
-                    break;
-                case  Break:
-                    resultado += "  <Break>\t\t" + lexicos.lexemas + "\n";
-                    break;
-                case  Include:
-                    resultado += "  <Include>\t\t" + lexicos.lexemas + "\n";
-                    break;
-                case  Cin:
-                    resultado += "  <Cin>\t\t" + lexicos.lexemas + "\n";
-                    break;
-                case  Cout:
-                    resultado += "  <Cout>\t\t" + lexicos.lexemas + "\n";
                     break;
                 case Numero:
                     resultado += "  <Numero>\t\t" + lexicos.lexemas + "\n";
