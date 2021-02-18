@@ -172,6 +172,9 @@ espacio=[ ,\t,\r]+
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {lexemas=yytext(); return Printf;}
 
+/* Marcador de lectura de pantalla  */
+( "scanf" ) {lexemas=yytext(); return Scanf;}
+
 /* Cin */
 ( cin ) {lexemas=yytext(); return Cin;}
 /* Cout */

@@ -51,6 +51,7 @@ public enum Tokens {
     Main,
     Void,
     Printf,
+    Scanf,
     P_coma,
     Punto,
     Identificador,

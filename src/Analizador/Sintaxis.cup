@@ -306,7 +306,6 @@ SENTENCIA_PRINTF ::=
     Modulo Identificador Linea |
     Modulo Identificador Back Identificador |
 
-    
     TEXTO DPuntos Modulo Identificador Back Identificador
 ;
 
@@ -354,6 +353,7 @@ SENTENCIA_CIN ::=
     Identificador
 ;
 */
+
 COUT ::=
     Cout Op_desIzq SENTENCIA_COUT P_coma |
     Cout Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT P_coma
@@ -365,3 +365,4 @@ SENTENCIA_COUT ::=
     Comillas Identificador Identificador Comillas |
     Comillas Identificador Identificador Identificador Identificador DPuntos Comillas |
     Comillas Identificador Identificador Identificador Comillas
+;

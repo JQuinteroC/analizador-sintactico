@@ -10,3 +10,11 @@ nbproject/private/private.xml
 nbproject/private/private.properties
 build/built-jar.properties
 build/built-jar.properties
+build/built-jar.properties
+build/built-jar.properties
+build/classes/Analizador/CUP$Sintaxis$actions.class
+build/classes/Analizador/Lexico.class
+build/classes/Analizador/LexicoCup.class
+build/classes/Analizador/Sintaxis.class
+build/classes/Analizador/sym.class
+build/classes/Analizador/Tokens.class
