@@ -150,7 +150,6 @@ DECLARACION ::=
 
     T_char Identificador P_coma |
     T_char Identificador Igual Comillas Comillas P_coma |
-<<<<<<< HEAD
     T_char Identificador Igual Comillas TEXTO Comillas P_coma |
 
     Identificador Igual Numero P_coma |
@@ -164,11 +163,11 @@ DECLARACION_ARITMETICA ::=
     Identificador Op_incremento P_coma|
     Identificador Op_decremento P_coma|
 
-    Identificador Op_asigResta Identificador P_coma|
-    Identificador Op_asigDiv Identificador P_coma|
-    Identificador Op_asigMult Identificador P_coma|
-    Identificador Op_asigSuma Identificador P_coma|
-    Identificador Op_asigModulo Identificador P_coma|
+    Identificador Op_asigResta Numero P_coma|
+    Identificador Op_asigDiv Numero P_coma|
+    Identificador Op_asigMult Numero P_coma|
+    Identificador Op_asigSuma Numero P_coma|
+    Identificador Op_asigModulo Numero P_coma|
     
     T_DATO_ENTERO Identificador Igual Numero Suma Numero P_coma |
     T_DATO_ENTERO Identificador Igual Numero Resta Numero P_coma |
@@ -183,9 +182,6 @@ DECLARACION_ARITMETICA ::=
 
     Cadena Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma |
     T_char Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma 
-=======
-    T_char Identificador Igual Comillas TEXTO Comillas P_coma
->>>>>>> b16c04b666a7752a731a3f88160a52e005269735
 ;
 
 T_DATO_ENTERO ::= 
