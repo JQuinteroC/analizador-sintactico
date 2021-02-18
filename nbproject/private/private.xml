@@ -5,7 +5,10 @@
         <group>
             <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/src/Analizador/LexicoCup.flex</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/src/Analizador/FrmAnalizador.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/src/Analizador/Tokens.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/src/Analizador/Lexico.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/src/Analizador/Analizadores.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/src/Analizador/Sintaxis.cup</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/analizador-sintactico/src/Analizador/Lexico.flex</file>
         </group>

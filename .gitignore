@@ -18,3 +18,5 @@ build/classes/Analizador/LexicoCup.class
 build/classes/Analizador/Sintaxis.class
 build/classes/Analizador/sym.class
 build/classes/Analizador/Tokens.class
+build/built-jar.properties
+nbproject/private/private.xml

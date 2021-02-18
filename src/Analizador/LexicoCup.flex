@@ -179,6 +179,7 @@ espacio=[ ,\t,\r,\n]+
 /* Marcador de inicio de impresion en pantalla */
 ( "scanf" ) {return new Symbol(sym.Scanf, yychar, yyline, yytext());}
 
+
 /* Cin */
 ( cin ) {return new Symbol(sym.Cin, yychar, yyline, yytext());}
 /* Cout */

@@ -28,7 +28,7 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break, Back,
     Cout, Cin, Return,
     Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
     Void, Main, Using, Namespace, Iostream, Std, Identificador,
-    Printf, Scanf, System,
+    Printf, Scanf,
     Define, Include, Numeral,
     Numero, ERROR, Default;
 
