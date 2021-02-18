@@ -10,6 +10,7 @@ public enum Tokens {
     T_long,
     T_float,
     T_double,
+    T_bool,
     Cadena,
     If,
     Else,
@@ -72,5 +73,6 @@ public enum Tokens {
     ERROR,
     Do,
     Switch,
+    Back,
     Default
 }

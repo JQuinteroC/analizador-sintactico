@@ -18,7 +18,7 @@ parser code
 :};
 
 terminal Linea, If, Else, Do, While, For, Switch, Case, Break, Back,
-    Cadena, T_int, T_double, T_long, T_char, T_float, T_byte,
+    Cadena, T_int, T_double, T_long, T_char, T_float, T_byte, T_bool,
     Igual, Suma, Resta, Multiplicacion, Division, Modulo,
     Op_igual, Op_diferente, Op_menor, Op_mayor, Op_or, Op_and, Op_menorE, Op_mayorE, Op_orB, Op_andB, Op_not,
     Op_boolFalse, Op_boolTrue, Op_incremento, Op_decremento,
@@ -29,12 +29,13 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break, Back,
     Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
     Void, Main, Using, Namespace, Iostream, Std, Identificador,
     Printf, Scanf,
-    Define, Include, Numeral,
+    Define, Include,
     Numero, ERROR, Default;
 
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN, TEXTO, DECLARACION_ARITMETICA, DEFINE,
     WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE,
-    PRINTF, SENTENCIA_PRINTF, SCANF, SENTENCIA_SCANF, SENTENCIA_CIN, CIN, SENTENCIA_COUT, COUT, SWITCH, SENTENCIA_SWITCH;
+    PRINTF, SENTENCIA_PRINTF, SCANF, SENTENCIA_SCANF, SENTENCIA_CIN, CIN, SENTENCIA_COUT, COUT, SWITCH, SENTENCIA_SWITCH,
+    IDENTIFICADORES;
 
 start with INICIO;
 
@@ -94,12 +95,30 @@ RETURN ::=
 ;
 
 TEXTO ::=
-    Identificador |
-    Identificador Identificador |
-    Identificador Identificador Identificador |
-    Identificador Identificador Identificador Identificador 
+    IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES |
+    IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES IDENTIFICADORES
 ;
 
+IDENTIFICADORES ::=
+    Identificador |
+    Numero |
+    Punto |
+    Back |
+    Resta |
+    Suma |
+    Division |
+    Multiplicacion |
+    Igual |
+    Modulo |
+    DPuntos
+;
 
 SENTENCIA ::= 
     SENTENCIA DECLARACION |
@@ -122,9 +141,9 @@ SENTENCIA ::=
     SWITCH
     SENTENCIA SCANF |
     SCANF |
-    SENTENCIA_CIN |
+    SENTENCIA CIN |
     CIN |
-    SENTENCIA_COUT |
+    SENTENCIA COUT |
     COUT
 ;
 
@@ -180,7 +199,16 @@ DECLARACION ::=
     T_char Identificador Igual Comillas Comillas P_coma |
     T_char Identificador Igual Comillas TEXTO Comillas P_coma |
 
+    T_bool Identificador P_coma |
+    T_bool Identificador Igual TRUE_FALSE P_coma |
+    T_bool Identificador Identificador P_coma |
+    T_bool Identificador Igual TRUE_FALSE Identificador P_coma |
+    T_bool Identificador Identificador Igual TRUE_FALSE P_coma |
+    T_bool Identificador Igual TRUE_FALSE Identificador Igual TRUE_FALSE P_coma |
+
     Identificador Igual Numero P_coma |
+    Identificador Igual TRUE_FALSE P_coma |
+    Identificador Igual Identificador P_coma |
     Identificador Igual Comillas Comillas P_coma |
     Identificador Igual Comillas TEXTO Comillas P_coma |
 
@@ -196,20 +224,65 @@ DECLARACION_ARITMETICA ::=
     Identificador Op_asigMult Numero P_coma|
     Identificador Op_asigSuma Numero P_coma|
     Identificador Op_asigModulo Numero P_coma|
+
+    Identificador Op_asigResta Identificador P_coma|
+    Identificador Op_asigDiv Identificador P_coma|
+    Identificador Op_asigMult Identificador P_coma|
+    Identificador Op_asigSuma Identificador P_coma|
+    Identificador Op_asigModulo Identificador P_coma|
     
     T_DATO_ENTERO Identificador Igual Numero Suma Numero P_coma |
     T_DATO_ENTERO Identificador Igual Numero Resta Numero P_coma |
     T_DATO_ENTERO Identificador Igual Numero Multiplicacion Numero P_coma |
     T_DATO_ENTERO Identificador Igual Numero Division Numero P_coma |
     T_DATO_ENTERO Identificador Igual Numero Modulo Numero P_coma | 
+    
+    T_DATO_ENTERO Identificador Igual Numero Punto Numero Suma Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Suma Numero Punto Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Suma Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Punto Numero Resta Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Resta Numero Punto Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Resta Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Multiplicacion Numero Punto Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Punto Numero Multiplicacion Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Multiplicacion Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Division Numero Punto Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Punto Numero Division Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Identificador Division Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Punto Numero Modulo Identificador P_coma | 
+    T_DATO_ENTERO Identificador Igual Identificador Modulo Numero Punto Numero P_coma | 
+    T_DATO_ENTERO Identificador Igual Identificador Modulo Identificador P_coma | 
 
     T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Suma Numero Punto Numero P_coma |
     T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Resta Numero Punto Numero P_coma |
     T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Multiplicacion Numero Punto Numero P_coma |
     T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Division Numero Punto Numero P_coma |
 
+    
+    T_DATO_FLOTANTE Identificador Igual Numero Suma Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Suma Numero P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Suma Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero Resta Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Resta Numero P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Resta Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Multiplicacion Numero P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero Multiplicacion Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Multiplicacion Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Division Numero P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero Division Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Identificador Division Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero Modulo Identificador P_coma | 
+    T_DATO_FLOTANTE Identificador Igual Identificador Modulo Numero P_coma | 
+    T_DATO_FLOTANTE Identificador Igual Identificador Modulo Identificador P_coma | 
+    
     Cadena Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma |
-    T_char Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma 
+    Cadena Identificador Igual Comillas TEXTO Comillas Suma Identificador P_coma |
+    Cadena Identificador Igual Identificador Suma Comillas TEXTO Comillas P_coma |
+    Cadena Identificador Igual Identificador Suma Identificador P_coma |
+    T_char Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma |
+    T_char Identificador Igual Comillas TEXTO Comillas Suma Identificador P_coma |
+    T_char Identificador Igual Identificador Suma Comillas TEXTO Comillas P_coma |
+    T_char Identificador Igual Identificador Suma Identificador P_coma 
 ;
 
 T_DATO_ENTERO ::= 
@@ -294,20 +367,7 @@ PRINTF ::=
 
 SENTENCIA_PRINTF ::=
     TEXTO |
-    TEXTO DPuntos |
-    TEXTO Modulo |
-    TEXTO Modulo Identificador |
-    Modulo Identificador |
-    TEXTO Back Identificador |
-    TEXTO Linea |
-    TEXTO DPuntos Modulo Identificador |
-    TEXTO DPuntos Modulo Identificador Linea|
-    TEXTO DPuntos Modulo Identificador Back|
-
-    Modulo Identificador Linea |
-    Modulo Identificador Back Identificador |
-
-    TEXTO DPuntos Modulo Identificador Back Identificador
+    TEXTO Linea 
 ;
 
 DEFINE ::=
@@ -317,9 +377,13 @@ DEFINE ::=
 SWITCH ::=
     Switch Parent_a Identificador Parent_c Llave_a Llave_c |
     Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH Llave_c |
+    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH Llave_c |
+    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH SENTENCIA_SWITCH Llave_c |
     
     Switch Parent_a Identificador Parent_c Llave_a Default DPuntos P_coma Llave_c |
-    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH Default DPuntos P_coma Llave_c 
+    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH Default DPuntos P_coma Llave_c |
+    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH Default DPuntos P_coma Llave_c |
+    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH SENTENCIA_SWITCH Default DPuntos P_coma Llave_c 
 ;
 
 SENTENCIA_SWITCH ::=
@@ -362,8 +426,6 @@ COUT ::=
 
 SENTENCIA_COUT ::=
     Identificador |
-    Comillas Identificador Comillas |
-    Comillas Identificador Identificador Comillas |
-    Comillas Identificador Identificador Identificador Identificador DPuntos Comillas |
-    Comillas Identificador Identificador Identificador Comillas
+    Comillas Comillas |
+    Comillas TEXTO Comillas 
 ;

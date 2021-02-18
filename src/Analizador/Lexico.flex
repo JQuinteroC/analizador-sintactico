@@ -28,7 +28,7 @@ espacio=[ ,\t,\r]+
 /* Simples */
 ( "\'" ) {lexemas=yytext(); return Comillas_s;}
 /* Backslash */
-/*( "\\" ) {lexemas=yytext(); return Back;}*/
+( "\\" ) {lexemas=yytext(); return Back;}
 
 
 /* Tipos de datos */
@@ -46,7 +46,8 @@ espacio=[ ,\t,\r]+
 ( double ) {lexemas=yytext(); return T_double;}
 /* String */
 ( string ) {lexemas=yytext(); return Cadena;}
-
+/* Tipo de dato boolean */
+( bool ) {lexemas=yytext(); return T_bool;}
 
 /* Palabra reservada If */
 ( if ) {lexemas=yytext(); return If;}

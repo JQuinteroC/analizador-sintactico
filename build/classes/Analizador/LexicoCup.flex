@@ -33,6 +33,8 @@ espacio=[ ,\t,\r,\n]+
 ( "\"" ) {return new Symbol(sym.Comillas, yychar, yyline, yytext());}
 /* Simples */
 ( "\'" ) {return new Symbol(sym.Comillas_s, yychar, yyline, yytext());}
+/* Backslash */
+( "\\" ) {return new Symbol(sym.Back, yychar, yyline, yytext());}
 
 /* Tipos de datos */
 /* Byte */
@@ -49,6 +51,8 @@ espacio=[ ,\t,\r,\n]+
 ( double ) {return new Symbol(sym.T_double, yychar, yyline, yytext());}
 /* Tipo de dato String */
 ( string ) {return new Symbol(sym.Cadena, yychar, yyline, yytext());}
+/* Tipo de dato boolean */
+( bool ) {return new Symbol(sym.T_bool, yychar, yyline, yytext());}
 
 /* Palabra reservada If */
 ( if ) {return new Symbol(sym.If, yychar, yyline, yytext());}
@@ -175,6 +179,9 @@ espacio=[ ,\t,\r,\n]+
 
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {return new Symbol(sym.Printf, yychar, yyline, yytext());}
+
+/* Marcador de inicio de impresion en pantalla */
+( "scanf" ) {return new Symbol(sym.Scanf, yychar, yyline, yytext());}
 
 /* Cin */
 ( cin ) {return new Symbol(sym.Cin, yychar, yyline, yytext());}

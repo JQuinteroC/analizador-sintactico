@@ -145,26 +145,24 @@ public class FrmAnalizador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addComponent(btnBorrarCod))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnASintactico)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBorrarSin))
-                    .addComponent(jScrollPane1))
-                .addGap(21, 21, 21)
+                    .addComponent(btnASintactico)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnBorrarSin)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnALexico)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnGenObjeto)
@@ -172,19 +170,18 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 .addComponent(btnGenEjecutable)
                 .addGap(18, 18, 18)
                 .addComponent(btnEjecutar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBorrar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnALexico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrarCod)))
+                        .addComponent(btnArchivo)
+                        .addComponent(btnBorrarCod)
+                        .addComponent(btnALexico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -245,6 +242,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case T_float:
                     resultado += "  <Reservada float>\t" + lexicos.lexemas + "\n";
                     break;
+                case T_bool:
+                    resultado += "  <Reservada bool>\t" + lexicos.lexemas + "\n";
+                    break;
                 case T_double:
                     resultado += "  <Reservada double>\t" + lexicos.lexemas + "\n";
                     break;
@@ -253,6 +253,27 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case Else:
                     resultado += "  <Reservada else>\t" + lexicos.lexemas + "\n";
+                    break;
+                case While:
+                    resultado += "  <Reservada while>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Switch:
+                    resultado += "  <Reservada Switch>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Case:
+                    resultado += "  <Reservada Case>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Default:
+                    resultado += "  <Reservada Default>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Back:
+                    resultado += "  <backslash>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Cout:
+                    resultado += "  <Reservada cout>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Cin:
+                    resultado += "  <Reservada cin>\t" + lexicos.lexemas + "\n";
                     break;
                 case Igual:
                     resultado += "  <Operador igual>\t" + lexicos.lexemas + "\n";
@@ -294,22 +315,22 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     resultado += "  <Operador decremento>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_mayor:
-                    resultado += "  <Operador relacional Mayor que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Mayor que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_menor:
-                    resultado += "  <Operador relacional Menor que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Menor que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_igual:
-                    resultado += "  <Operador relacional Igual que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Igual que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_diferente:
-                    resultado += "  <Operador relacional Diferente que >\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Diferente que >\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_mayorE:
-                    resultado += "  <Operador relacional Mayor o igual que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Mayor o igual que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_menorE:
-                    resultado += "  <Operador relacional Menor o igual que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Menor o igual que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_desIzq:
                     resultado += "  <Operador binario desplazamiento a la izquierda >\t" + lexicos.lexemas + "\n";
@@ -400,6 +421,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case Define:
                     resultado += "  <Definición de constante>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Iostream:
+                    resultado += "  <Definición de lib. IOSstream>\t\t" + lexicos.lexemas + "\n";
                     break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
