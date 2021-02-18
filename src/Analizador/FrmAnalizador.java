@@ -377,6 +377,21 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Numero:
                     resultado += "  <Numero>\t\t" + lexicos.lexemas + "\n";
                     break;
+                case Using:
+                    resultado += "  <Using>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Namespace:
+                    resultado += "  <Namespace>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Std:
+                    resultado += "  <STD>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Include:
+                    resultado += "  <Reservada #inlude>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case DPuntos:
+                    resultado += "  <Dos puntos>\t\t" + lexicos.lexemas + "\n";
+                    break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
                     break;

@@ -32,7 +32,7 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Define, Include, Numeral,
     Numero, ERROR, Default;
 
-non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN, TEXTO,
+non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN, TEXTO, DECLARACION_ARITMETICA,
     WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE, PRINTF;
 
 start with INICIO;
@@ -89,7 +89,7 @@ TEXTO ::=
     Identificador |
     Identificador Identificador |
     Identificador Identificador Identificador |
-    Identificador Identificador Identificador Identificador |
+    Identificador Identificador Identificador Identificador 
 ;
 
 
@@ -131,26 +131,57 @@ DECLARACION ::=
     Cadena Identificador Igual Comillas Comillas Identificador P_coma |
     Cadena Identificador Identificador Igual Comillas Comillas  P_coma |
     Cadena Identificador Igual Comillas Comillas Identificador Igual Comillas Comillas  P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas Identificador P_coma |
-    Cadena Identificador Identificador Igual Comillas Identificador Comillas  P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas Identificador Igual Comillas Identificador Comillas  P_coma |
+    Cadena Identificador Igual Comillas TEXTO Comillas Identificador P_coma |
+    Cadena Identificador Identificador Igual Comillas TEXTO Comillas  P_coma |
+    Cadena Identificador Igual Comillas TEXTO Comillas Identificador Igual Comillas TEXTO Comillas  P_coma |
 
     T_char Identificador Identificador P_coma |
     T_char Identificador Igual Comillas Comillas Identificador P_coma |
     T_char Identificador Identificador Igual Comillas Comillas  P_coma |
     T_char Identificador Igual Comillas Comillas Identificador Igual Comillas Comillas  P_coma |
-    T_char Identificador Igual Comillas Identificador Comillas Identificador P_coma |
-    T_char Identificador Identificador Igual Comillas Identificador Comillas  P_coma |
-    T_char Identificador Igual Comillas Identificador Comillas Identificador Igual Comillas Identificador Comillas  P_coma |
+    T_char Identificador Igual Comillas TEXTO Comillas Identificador P_coma |
+    T_char Identificador Identificador Igual Comillas TEXTO Comillas  P_coma |
+    T_char Identificador Igual Comillas TEXTO Comillas Identificador Igual Comillas TEXTO Comillas  P_coma |
 
 
     Cadena Identificador P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas P_coma |
+    Cadena Identificador Igual Comillas TEXTO Comillas P_coma |
 
     T_char Identificador P_coma |
     T_char Identificador Igual Comillas Comillas P_coma |
-    T_char Identificador Igual Comillas Identificador Comillas P_coma
+    T_char Identificador Igual Comillas TEXTO Comillas P_coma |
+
+    Identificador Igual Numero P_coma |
+    Identificador Igual Comillas Comillas P_coma |
+    Identificador Igual Comillas TEXTO Comillas P_coma |
+
+    DECLARACION_ARITMETICA
+;
+
+DECLARACION_ARITMETICA ::=
+    Identificador Op_incremento P_coma|
+    Identificador Op_decremento P_coma|
+
+    Identificador Op_asigResta Identificador P_coma|
+    Identificador Op_asigDiv Identificador P_coma|
+    Identificador Op_asigMult Identificador P_coma|
+    Identificador Op_asigSuma Identificador P_coma|
+    Identificador Op_asigModulo Identificador P_coma|
+    
+    T_DATO_ENTERO Identificador Igual Numero Suma Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Resta Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Multiplicacion Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Division Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Modulo Numero P_coma | 
+
+    T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Suma Numero Punto Numero P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Resta Numero Punto Numero P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Multiplicacion Numero Punto Numero P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Division Numero Punto Numero P_coma |
+
+    Cadena Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma |
+    T_char Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma 
 ;
 
 T_DATO_ENTERO ::= 
