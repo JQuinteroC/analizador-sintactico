@@ -286,6 +286,7 @@ DECLARACION_FOR ::=
 ;
 
 PRINTF ::=
+    Printf Parent_a Parent_c P_coma | 
     Printf Parent_a Comillas Comillas Parent_c P_coma | 
     Printf Parent_a Comillas SENTENCIA_PRINTF Comillas Parent_c P_coma |
     Printf Parent_a Comillas SENTENCIA_PRINTF Comillas Coma Identificador Parent_c P_coma 
