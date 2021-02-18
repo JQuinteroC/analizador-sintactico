@@ -33,7 +33,8 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Numero, ERROR, Default;
 
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN, TEXTO, DECLARACION_ARITMETICA, DEFINE,
-    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE, PRINTF;
+    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE, PRINTF,
+    SWITCH, SENTENCIA_SWITCH;
 
 start with INICIO;
 
@@ -49,11 +50,13 @@ LIBRERIAS ::=
     Include Op_menor Identificador Op_mayor Using Namespace Std P_coma|
     Include Op_menor Identificador Punto Identificador Op_mayor Using Namespace Std P_coma |
 
+    Include Op_menor Iostream Op_mayor Include Op_menor Identificador Op_mayor |
     Include Op_menor Identificador Op_mayor Include Op_menor Identificador Op_mayor |
     Include Op_menor Identificador Op_mayor Include Op_menor Identificador Punto Identificador Op_mayor |
     Include Op_menor Identificador Punto Identificador Op_mayor Include Op_menor Identificador Op_mayor |
     Include Op_menor Identificador Punto Identificador Op_mayor Include Op_menor Identificador Punto Identificador Op_mayor |
 
+    Include Op_menor Iostream Op_mayor Include Op_menor Identificador Op_mayor Using Namespace Std P_coma|
     Include Op_menor Identificador Op_mayor Include Op_menor Identificador Op_mayor Using Namespace Std P_coma|
     Include Op_menor Identificador Op_mayor Include Op_menor Identificador Punto Identificador Using Namespace Std P_coma |
     Include Op_menor Identificador Punto Identificador Op_mayor Include Op_menor Identificador Op_mayor Using Namespace Std P_coma|
@@ -114,7 +117,9 @@ SENTENCIA ::=
     SENTENCIA PRINTF |
     PRINTF |
     SENTENCIA DEFINE |
-    DEFINE
+    DEFINE |
+    SENTENCIA SWITCH |
+    SWITCH
 ;
 
 DECLARACION ::= 
@@ -126,7 +131,17 @@ DECLARACION ::=
     T_DATO_ENTERO Identificador Identificador Igual Numero P_coma | 
     T_DATO_ENTERO Identificador Igual Numero Identificador Igual Numero P_coma |
 
+    T_DATO_ENTERO Identificador Identificador Identificador P_coma | 
+    T_DATO_ENTERO Identificador Identificador Igual Numero Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Identificador Identificador P_coma |
+    T_DATO_ENTERO Identificador Identificador Identificador Igual Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Identificador Igual Numero Identificador P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Identificador Identificador Igual Numero P_coma |
+    T_DATO_ENTERO Identificador Identificador Igual Numero Identificador Igual Numero P_coma |
+    T_DATO_ENTERO Identificador Igual Numero Identificador Igual Numero Identificador Igual Numero P_coma |
+
     T_DATO_FLOTANTE Identificador P_coma |
+    T_DATO_FLOTANTE Identificador Igual Numero P_coma |
     T_DATO_FLOTANTE Identificador Igual Numero Punto Numero P_coma |
 
     T_DATO_FLOTANTE Identificador Identificador P_coma | 
@@ -194,7 +209,7 @@ DECLARACION_ARITMETICA ::=
 T_DATO_ENTERO ::= 
     T_int |
     T_long |
-    T_byte
+    T_byte 
 ;
 
 T_DATO_FLOTANTE ::=
@@ -270,4 +285,20 @@ PRINTF ::=
 
 DEFINE ::=
     Define Identificador Numero P_coma
+;
+
+SWITCH ::=
+    Switch Parent_a Identificador Parent_c Llave_a Llave_c |
+    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH Llave_c |
+    
+    Switch Parent_a Identificador Parent_c Llave_a Default DPuntos P_coma Llave_c |
+    Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH Default DPuntos P_coma Llave_c 
+;
+
+SENTENCIA_SWITCH ::=
+    Case Numero DPuntos Break P_coma |
+    Case Numero DPuntos SENTENCIA Break P_coma |
+    Case Identificador DPuntos Break P_coma |
+    Case Identificador DPuntos SENTENCIA Break P_coma |
+    Default DPuntos SENTENCIA
 ;

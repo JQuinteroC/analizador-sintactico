@@ -166,6 +166,9 @@ espacio=[ ,\t,\r]+
 /* Marcador de inicio de metodos */
 ( "void" ) {lexemas=yytext(); return Void;}
 
+/* Marcador de salida */
+( break ) {lexemas=yytext(); return Break;}
+
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {lexemas=yytext(); return Printf;}
 
