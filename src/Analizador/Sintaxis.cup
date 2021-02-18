@@ -89,7 +89,7 @@ TEXTO ::=
     Identificador |
     Identificador Identificador |
     Identificador Identificador Identificador |
-    Identificador Identificador Identificador Identificador |
+    Identificador Identificador Identificador Identificador 
 ;
 
 
@@ -131,26 +131,26 @@ DECLARACION ::=
     Cadena Identificador Igual Comillas Comillas Identificador P_coma |
     Cadena Identificador Identificador Igual Comillas Comillas  P_coma |
     Cadena Identificador Igual Comillas Comillas Identificador Igual Comillas Comillas  P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas Identificador P_coma |
-    Cadena Identificador Identificador Igual Comillas Identificador Comillas  P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas Identificador Igual Comillas Identificador Comillas  P_coma |
+    Cadena Identificador Igual Comillas TEXTO Comillas Identificador P_coma |
+    Cadena Identificador Identificador Igual Comillas TEXTO Comillas  P_coma |
+    Cadena Identificador Igual Comillas TEXTO Comillas Identificador Igual Comillas TEXTO Comillas  P_coma |
 
     T_char Identificador Identificador P_coma |
     T_char Identificador Igual Comillas Comillas Identificador P_coma |
     T_char Identificador Identificador Igual Comillas Comillas  P_coma |
     T_char Identificador Igual Comillas Comillas Identificador Igual Comillas Comillas  P_coma |
-    T_char Identificador Igual Comillas Identificador Comillas Identificador P_coma |
-    T_char Identificador Identificador Igual Comillas Identificador Comillas  P_coma |
-    T_char Identificador Igual Comillas Identificador Comillas Identificador Igual Comillas Identificador Comillas  P_coma |
+    T_char Identificador Igual Comillas TEXTO Comillas Identificador P_coma |
+    T_char Identificador Identificador Igual Comillas TEXTO Comillas  P_coma |
+    T_char Identificador Igual Comillas TEXTO Comillas Identificador Igual Comillas TEXTO Comillas  P_coma |
 
 
     Cadena Identificador P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas P_coma |
+    Cadena Identificador Igual Comillas TEXTO Comillas P_coma |
 
     T_char Identificador P_coma |
     T_char Identificador Igual Comillas Comillas P_coma |
-    T_char Identificador Igual Comillas Identificador Comillas P_coma
+    T_char Identificador Igual Comillas TEXTO Comillas P_coma
 ;
 
 T_DATO_ENTERO ::= 
