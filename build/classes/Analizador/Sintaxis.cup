@@ -114,6 +114,28 @@ DECLARACION ::=
     T_DATO_FLOTANTE Identificador P_coma |
     T_DATO_FLOTANTE Identificador Igual Numero Punto Numero P_coma |
 
+    T_DATO_FLOTANTE Identificador Identificador P_coma | 
+    T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Identificador P_coma | 
+    T_DATO_FLOTANTE Identificador Identificador Igual Numero Punto Numero P_coma | 
+    T_DATO_FLOTANTE Identificador Igual Numero Punto Numero Identificador Numero Punto Numero Numero P_coma |
+    
+    Cadena Identificador Identificador P_coma |
+    Cadena Identificador Igual Comillas Comillas Identificador P_coma |
+    Cadena Identificador Identificador Igual Comillas Comillas  P_coma |
+    Cadena Identificador Igual Comillas Comillas Identificador Igual Comillas Comillas  P_coma |
+    Cadena Identificador Igual Comillas Identificador Comillas Identificador P_coma |
+    Cadena Identificador Identificador Igual Comillas Identificador Comillas  P_coma |
+    Cadena Identificador Igual Comillas Identificador Comillas Identificador Igual Comillas Identificador Comillas  P_coma |
+
+    T_char Identificador Identificador P_coma |
+    T_char Identificador Igual Comillas Comillas Identificador P_coma |
+    T_char Identificador Identificador Igual Comillas Comillas  P_coma |
+    T_char Identificador Igual Comillas Comillas Identificador Igual Comillas Comillas  P_coma |
+    T_char Identificador Igual Comillas Identificador Comillas Identificador P_coma |
+    T_char Identificador Identificador Igual Comillas Identificador Comillas  P_coma |
+    T_char Identificador Igual Comillas Identificador Comillas Identificador Igual Comillas Identificador Comillas  P_coma |
+
+
     Cadena Identificador P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
     Cadena Identificador Igual Comillas Identificador Comillas P_coma |
