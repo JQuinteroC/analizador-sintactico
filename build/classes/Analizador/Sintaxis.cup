@@ -32,7 +32,11 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Define, Include, Numeral,
     Numero, ERROR, Default;
 
+<<<<<<< HEAD
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN, TEXTO, DECLARACION_ARITMETICA,
+=======
+non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN, TEXTO,
+>>>>>>> b16c04b666a7752a731a3f88160a52e005269735
     WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE, PRINTF;
 
 start with INICIO;
@@ -150,6 +154,7 @@ DECLARACION ::=
 
     T_char Identificador P_coma |
     T_char Identificador Igual Comillas Comillas P_coma |
+<<<<<<< HEAD
     T_char Identificador Igual Comillas TEXTO Comillas P_coma |
 
     DECLARACION_ARITMETICA
@@ -178,6 +183,9 @@ DECLARACION_ARITMETICA ::=
 
     Cadena Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma |
     T_char Identificador Igual Comillas TEXTO Comillas Suma Comillas TEXTO Comillas P_coma 
+=======
+    T_char Identificador Igual Comillas TEXTO Comillas P_coma
+>>>>>>> b16c04b666a7752a731a3f88160a52e005269735
 ;
 
 T_DATO_ENTERO ::= 
