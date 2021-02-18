@@ -178,6 +178,8 @@ espacio=[ ,\t,\r]+
 ( ";" ) {lexemas=yytext(); return P_coma;}
 /* Punto */
 ( "." ) {lexemas=yytext(); return Punto;}
+/* Coma */
+( "," ) {lexemas=yytext(); return Coma;}
 /* Dos puntos */
 ( ":" ) {lexemas=yytext(); return DPuntos;}
 

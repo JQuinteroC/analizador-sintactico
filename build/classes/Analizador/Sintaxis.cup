@@ -24,7 +24,7 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Op_boolFalse, Op_boolTrue, Op_incremento, Op_decremento,
     Op_asigResta, Op_asigDiv, Op_asigMult, Op_asigSuma, Op_asigModulo,
     Op_desDer, Op_desIzq, 
-    P_coma, Punto, DPuntos, Comillas, Comillas_s,
+    P_coma, Punto, Coma, DPuntos, Comillas, Comillas_s,
     Cout, Cin,
     Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
     Void, Main, Using, Namespace, Iostream, Std, Identificador,
@@ -33,7 +33,7 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Numero, ERROR, Default;
 
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN,
-    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE;
+    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE, PRINTF;
 
 start with INICIO;
 
@@ -97,7 +97,9 @@ SENTENCIA ::=
     SENTENCIA DO_WHILE
     DO_WHILE |
     SENTENCIA FOR |
-    FOR
+    FOR |
+    SENTENCIA PRINTF |
+    PRINTF
 ;
 
 DECLARACION ::= 
@@ -185,3 +187,7 @@ DECLARACION_FOR ::=
     Op_decremento Identificador
 ;
 
+PRINTF ::=
+    Printf Parent_a Comillas Comillas Parent_c P_coma |
+    Printf Parent_a Comillas Comillas Coma Identificador Parent_c P_coma 
+;
