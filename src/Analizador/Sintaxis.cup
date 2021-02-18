@@ -32,7 +32,7 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Define, Include, Numeral,
     Numero, ERROR, Default;
 
-non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN,
+non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE, LIBRERIAS, RETURN, TEXTO,
     WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, T_DATO_ENTERO, T_DATO_FLOTANTE, OP_RELACIONAL, TRUE_FALSE, PRINTF;
 
 start with INICIO;
@@ -84,6 +84,14 @@ INICIO ::=
     LIBRERIAS T_int Main Parent_a Parent_c Llave_a RETURN Numero P_coma Llave_c |
     LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Identificador P_coma Llave_c     
 ;
+
+TEXTO ::=
+    Identificador |
+    Identificador Identificador |
+    Identificador Identificador Identificador |
+    Identificador Identificador Identificador Identificador |
+;
+
 
 SENTENCIA ::= 
     SENTENCIA DECLARACION |
@@ -188,6 +196,6 @@ DECLARACION_FOR ::=
 ;
 
 PRINTF ::=
-    Printf Parent_a Comillas Comillas Parent_c P_coma |
-    Printf Parent_a Comillas Comillas Coma Identificador Parent_c P_coma 
+    Printf Parent_a Comillas TEXTO Comillas Parent_c P_coma |
+    Printf Parent_a Comillas TEXTO Comillas Coma Identificador Parent_c P_coma 
 ;
