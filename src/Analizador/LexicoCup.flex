@@ -180,6 +180,8 @@ espacio=[ ,\t,\r,\n]+
 
 /* Return */
 ( return ) {return new Symbol(sym.Return, yychar, yyline, yytext());}
+/* Define */
+( #define ) {return new Symbol(sym.Define, yychar, yyline, yytext());}
 
 /* Punto y coma */
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}

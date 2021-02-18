@@ -176,6 +176,8 @@ espacio=[ ,\t,\r]+
 
 /* Return */
 ( return ) {lexemas=yytext(); return Return;}
+/* Define */
+( #define ) {lexemas=yytext(); return Define;}
 
 /* Punto y coma */
 ( ";" ) {lexemas=yytext(); return P_coma;}
