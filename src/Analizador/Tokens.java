@@ -58,6 +58,7 @@ public enum Tokens {
     DPuntos,
     Break,
     Modulo,
+    Return,
     Cin,
     Cout,
     Define,

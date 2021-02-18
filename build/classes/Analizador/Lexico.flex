@@ -174,6 +174,9 @@ espacio=[ ,\t,\r]+
 /* Cout */
 ( cout ) {lexemas=yytext(); return Cout;}
 
+/* Return */
+( return ) {lexemas=yytext(); return Return;}
+
 /* Punto y coma */
 ( ";" ) {lexemas=yytext(); return P_coma;}
 /* Punto */

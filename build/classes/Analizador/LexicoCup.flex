@@ -178,6 +178,9 @@ espacio=[ ,\t,\r,\n]+
 /* Cout */
 ( cout ) {return new Symbol(sym.Cout, yychar, yyline, yytext());}
 
+/* Return */
+( return ) {return new Symbol(sym.Return, yychar, yyline, yytext());}
+
 /* Punto y coma */
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
 /* Punto */

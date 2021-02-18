@@ -25,7 +25,7 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break,
     Op_asigResta, Op_asigDiv, Op_asigMult, Op_asigSuma, Op_asigModulo,
     Op_desDer, Op_desIzq, 
     P_coma, Punto, Coma, DPuntos, Comillas, Comillas_s,
-    Cout, Cin,
+    Cout, Cin, Return,
     Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
     Void, Main, Using, Namespace, Iostream, Std, Identificador,
     Printf, Scanf, System,
@@ -70,9 +70,8 @@ INICIO ::=
     T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
     T_int Main Parent_a Parent_c Llave_a Llave_c |
 
-    T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Numero P_coma Llave_c |
-    T_int Main Parent_a Parent_c Llave_a RETURN Numero P_coma Llave_c |
-    T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Identificador P_coma Llave_c |
+    T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN P_coma Llave_c |
+    T_int Main Parent_a Parent_c Llave_a RETURN P_coma Llave_c |
     
     LIBRERIAS Void Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
     LIBRERIAS Void Main Parent_a Parent_c Llave_a Llave_c |
@@ -80,9 +79,15 @@ INICIO ::=
     LIBRERIAS Main Parent_a Parent_c Llave_a Llave_c |
     LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
     LIBRERIAS T_int Main Parent_a Parent_c Llave_a Llave_c |
-    LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Numero P_coma Llave_c |
-    LIBRERIAS T_int Main Parent_a Parent_c Llave_a RETURN Numero P_coma Llave_c |
-    LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN Identificador P_coma Llave_c     
+    LIBRERIAS T_int Main Parent_a Parent_c Llave_a SENTENCIA RETURN P_coma Llave_c |
+    LIBRERIAS T_int Main Parent_a Parent_c Llave_a RETURN P_coma Llave_c |
+;
+
+RETURN ::=
+    Return Identificador |
+    Return Numero |
+    Return Comillas Comillas |
+    Return Comillas TEXTO Comillas
 ;
 
 TEXTO ::=
@@ -200,11 +205,18 @@ IF ::= If Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
 
 SENTENCIA_BOOLEANA ::= 
     TRUE_FALSE | 
+    Op_not Identificador |
     Identificador OP_RELACIONAL TRUE_FALSE |
     Identificador OP_RELACIONAL Numero |
     Identificador OP_RELACIONAL Identificador |
     Identificador OP_RELACIONAL Comillas Comillas |
-    Identificador OP_RELACIONAL Comillas Identificador Comillas
+    Identificador OP_RELACIONAL Comillas Identificador Comillas |
+
+    Op_not Identificador OP_RELACIONAL TRUE_FALSE |
+    Op_not Identificador OP_RELACIONAL Numero |
+    Op_not Identificador OP_RELACIONAL Identificador |
+    Op_not Identificador OP_RELACIONAL Comillas Comillas |
+    Op_not Identificador OP_RELACIONAL Comillas Identificador Comillas
 ;
 TRUE_FALSE ::=
     Op_boolTrue |

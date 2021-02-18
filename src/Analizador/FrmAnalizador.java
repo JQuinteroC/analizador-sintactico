@@ -392,6 +392,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case DPuntos:
                     resultado += "  <Dos puntos>\t\t" + lexicos.lexemas + "\n";
                     break;
+                case Return:
+                    resultado += "  <Return>\t\t" + lexicos.lexemas + "\n";
+                    break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
                     break;
