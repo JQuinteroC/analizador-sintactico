@@ -362,6 +362,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Void:
                     resultado += "  <Reservada void>\t" + lexicos.lexemas + "\n";
                     break;
+                case Break:
+                    resultado += "  <Reservada break>\t" + lexicos.lexemas + "\n";
+                    break;
                 case Printf:
                     resultado += "  <Reservada printf>\t" + lexicos.lexemas + "\n";
                     break;                    

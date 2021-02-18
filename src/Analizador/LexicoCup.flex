@@ -170,6 +170,9 @@ espacio=[ ,\t,\r,\n]+
 /* Marcador de inicio de metodos */
 ( "void" ) {return new Symbol(sym.Void, yychar, yyline, yytext());}
 
+/* Marcador de salida */
+( break ) {return new Symbol(sym.Break, yychar, yyline, yytext());}
+
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {return new Symbol(sym.Printf, yychar, yyline, yytext());}
 
