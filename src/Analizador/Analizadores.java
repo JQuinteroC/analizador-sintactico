@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
+
 public class Analizadores {
     public static void main(String[] args) throws Exception {
         String path= "src/Analizador/Lexico.flex";

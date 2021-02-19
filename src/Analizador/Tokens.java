@@ -1,5 +1,7 @@
 package Analizador;
 
+/*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
+
 public enum Tokens {
     Linea,
     Comillas,
