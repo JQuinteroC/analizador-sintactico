@@ -138,7 +138,7 @@ SENTENCIA ::=
     SENTENCIA DEFINE |
     DEFINE |
     SENTENCIA SWITCH |
-    SWITCH
+    SWITCH |
     SENTENCIA SCANF |
     SCANF |
     SENTENCIA CIN |
@@ -396,15 +396,18 @@ SENTENCIA_SWITCH ::=
     Default DPuntos SENTENCIA
 ;
 
-/*
+SCANF ::=
+    Scanf Parent_a Parent_c P_coma | 
+    Scanf Parent_a Comillas Comillas Parent_c P_coma | 
+    Scanf Parent_a Comillas SENTENCIA_SCANF Comillas Parent_c P_coma |
+    Scanf Parent_a Comillas SENTENCIA_SCANF Comillas TEXTO Parent_c P_coma |
+    Scanf Parent_a Comillas SENTENCIA_SCANF Comillas Op_andB TEXTO Parent_c P_coma
+;
+
 SENTENCIA_SCANF ::=
-    Identificador |
-   //***
-    Comillas Modulo Identificador Comillas Op_Nand Identificador
-  // ***
-    Comillas Modulo Identificador Comillas Identificador
-; 
-*/
+    TEXTO
+;
+
 
 CIN ::=
     Cin Op_desDer P_coma |
