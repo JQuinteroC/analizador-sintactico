@@ -5,8 +5,6 @@
 	.ascii "Al inicio: %d \12\0"
 .LC1:
 	.ascii "Despues: %d \12\0"
-.LC2:
-	.ascii "pause\0"
 	.text
 	.globl	main
 	.def	main;	.scl	2;	.type	32;	.endef
@@ -35,8 +33,6 @@ main:
 	movl	%eax, %edx
 	leaq	.LC1(%rip), %rcx
 	call	printf
-	leaq	.LC2(%rip), %rcx
-	call	system
 	movl	-4(%rbp), %eax
 	addq	$48, %rsp
 	popq	%rbp
@@ -44,4 +40,3 @@ main:
 	.seh_endproc
 	.ident	"GCC: (tdm64-1) 4.9.2"
 	.def	printf;	.scl	2;	.type	32;	.endef
-	.def	system;	.scl	2;	.type	32;	.endef

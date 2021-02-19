@@ -553,16 +553,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
             System.out.println("1. Creación de Archivo intermedio.");
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            
-            String[] array = { "cmd", "/C", "start", 
-            "2_Ensamblador.bat" };
-            Runtime.getRuntime().exec(array);
-            System.out.println("2. Creación de Ensamblador.");
-        } catch (IOException ex) {
-            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }      
         /*
         try {
             String[] intermedio = {"1_Intermedio.bat"};
@@ -578,7 +569,6 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
        
-    
         try {
             
             String[] array = { "cmd", "/C", "start", 
@@ -593,25 +583,17 @@ public class FrmAnalizador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void btnGenEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEnsambladorActionPerformed
-        
+
         try {
             
             String[] array = { "cmd", "/C", "start", 
-            "3_Objeto.bat" };
+            "2_Ensamblador.bat" };
             Runtime.getRuntime().exec(array);
-            System.out.println("3. Creación de Objetos.");
-        } catch (IOException ex) {
-            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            
-            String[] array = { "cmd", "/C", "start", 
-            "4_Ejecutable.bat" };
-            Runtime.getRuntime().exec(array);
-            System.out.println("4. Creación de Ejecutable.");
+            System.out.println("2. Creación de Ensamblador.");
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         }  
+        
         /*
         try {
             String[] gobjeto = {"3_Objeto.bat"};
@@ -626,11 +608,31 @@ public class FrmAnalizador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenEnsambladorActionPerformed
 
     private void btnGenObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenObjetoActionPerformed
-        // TODO add your handling code here:
+      
+        try {
+            
+            String[] array = { "cmd", "/C", "start", 
+            "3_Objeto.bat" };
+            Runtime.getRuntime().exec(array);
+            System.out.println("3. Creación de Objetos.");
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnGenObjetoActionPerformed
 
     private void btnGenEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEjecutableActionPerformed
-        // TODO add your handling code here:
+      
+        try {
+            
+            String[] array = { "cmd", "/C", "start", 
+            "4_Ejecutable.bat" };
+            Runtime.getRuntime().exec(array);
+            System.out.println("4. Creación de Ejecutable.");
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
     }//GEN-LAST:event_btnGenEjecutableActionPerformed
 
     /**
