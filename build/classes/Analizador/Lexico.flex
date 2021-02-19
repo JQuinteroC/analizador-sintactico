@@ -3,15 +3,18 @@ import static Analizador.Tokens.*;
 %%
 %class Lexico
 %type Tokens
-L=[a-zA-Z_]+
-D=[0-9]+
-espacio=[ ,\t,\r,\n,\f]+
+L=[a-zA-Z_]+                   
+D=[0-9]+         
+espacio=[ ,\t,\r]+
 %{
     public String lexemas;
 %}
 %%
 /* Espacios en blanco */
 {espacio} {/*Ignore*/}
+
+(try)
+(catch)
 
 /* Comentarios */
 ( "//"(.)* ) {/*Ignore*/}
@@ -20,7 +23,13 @@ espacio=[ ,\t,\r,\n,\f]+
 ( "\n" ) {return Linea;}
 
 /* Comillas */
+/* Dobles */
 ( "\"" ) {lexemas=yytext(); return Comillas;}
+/* Simples */
+( "\'" ) {lexemas=yytext(); return Comillas_s;}
+/* Backslash */
+( "\\" ) {lexemas=yytext(); return Back;}
+
 
 /* Tipos de datos */
 /* Byte */
@@ -35,23 +44,28 @@ espacio=[ ,\t,\r,\n,\f]+
 ( float ) {lexemas=yytext(); return T_float;}
 /* Double */
 ( double ) {lexemas=yytext(); return T_double;}
-/* Tipo de dato String */
+/* String */
 ( string ) {lexemas=yytext(); return Cadena;}
+/* Tipo de dato boolean */
+( bool ) {lexemas=yytext(); return T_bool;}
 
 /* Palabra reservada If */
 ( if ) {lexemas=yytext(); return If;}
 /* Palabra reservada Else */
 ( else ) {lexemas=yytext(); return Else;}
-/* Palabra reservada While */
-( while ) {lexemas=yytext(); return While;}
-/* Palabra reservada Switch */
+
+/* Estructura Switch */
 ( switch ) {lexemas=yytext(); return Switch;}
-/* Palabra reservada Default */
+/* Case */
+( case ) {lexemas=yytext(); return Case;}
+/* Default */
 ( default ) {lexemas=yytext(); return Default;}
-/* Palabra reservada For */
-( for ) {lexemas=yytext(); return For;}
-/* Palabra reservada Do */
+
+/* Estructura While */
+( while ) {lexemas=yytext(); return While;}
+/* Estructura Do */
 ( do ) {lexemas=yytext(); return Do;}
+
 
 /* Operador Igual */
 ( "=" ) {lexemas=yytext(); return Igual;}
@@ -63,6 +77,8 @@ espacio=[ ,\t,\r,\n,\f]+
 ( "*" ) {lexemas=yytext(); return Multiplicacion;}
 /* Operador Division */
 ( "/" ) {lexemas=yytext(); return Division;}
+/* Operador Modulo */
+( "%" ) {lexemas=yytext(); return Modulo;}
 
 /* Operadores logicos */
 /* AND */
@@ -103,8 +119,8 @@ espacio=[ ,\t,\r,\n,\f]+
 (  "*=" ) {lexemas = yytext(); return Op_asigMult;}
 /* Asignacion y division */
 ( "/=" ) {lexemas = yytext(); return Op_asigDiv;}
-/* Asignacion y resto */
-( "%=" ) {lexemas = yytext(); return Op_asigResto;}
+/* Asignacion y modulo */
+( "%=" ) {lexemas = yytext(); return Op_asigModulo;}
 
 /* Operadores Incremento */
 ( "++" ) {lexemas = yytext(); return Op_incremento;}
@@ -132,22 +148,50 @@ espacio=[ ,\t,\r,\n,\f]+
 /* Corchete de cierre */
 ( "]" ) {lexemas = yytext(); return Corchete_c;}
 
+/* Marcador de importación */
+( #include ) {lexemas=yytext(); return Include;}
+
+/* Marcador de IOStream*/
+( iostream ) {lexemas=yytext(); return Iostream;}
+
+/* Marcador de Using*/
+( using ) {lexemas=yytext(); return Using;}
+/* Marcador de NameSpace*/
+( namespace ) {lexemas=yytext(); return Namespace;}
+/* Marcador de STD*/
+( std ) {lexemas=yytext(); return Std;}
+
 /* Marcador de inicio de algoritmo */
 ( "main" ) {lexemas=yytext(); return Main;}
 
 /* Marcador de inicio de metodos */
 ( "void" ) {lexemas=yytext(); return Void;}
 
+/* Marcador de salida */
+( break ) {lexemas=yytext(); return Break;}
+
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {lexemas=yytext(); return Printf;}
 
-/* Marcador de inicio de lectura en pantalla */
+/* Marcador de lectura de pantalla  */
 ( "scanf" ) {lexemas=yytext(); return Scanf;}
+
+/* Cin */
+( cin ) {lexemas=yytext(); return Cin;}
+/* Cout */
+( cout ) {lexemas=yytext(); return Cout;}
+
+/* Return */
+( return ) {lexemas=yytext(); return Return;}
+/* Define */
+( #define ) {lexemas=yytext(); return Define;}
 
 /* Punto y coma */
 ( ";" ) {lexemas=yytext(); return P_coma;}
 /* Punto */
 ( "." ) {lexemas=yytext(); return Punto;}
+/* Dos puntos */
+( ":" ) {lexemas=yytext(); return DPuntos;}
 
 /* Identificador */
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}
@@ -157,3 +201,4 @@ espacio=[ ,\t,\r,\n,\f]+
 
 /* Error de analisis */
  . {return ERROR;}
+

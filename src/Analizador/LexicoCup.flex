@@ -1,21 +1,18 @@
 package Analizador;
 import java_cup.runtime.Symbol;
 
-/* 
-   José Luis Quintero Cañizalez
-   Edison Mauricio Riaño Alvarado
-*/
+/*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
 
 %%
 %class LexicoCup
 %type java_cup.runtime.Symbol
-%cup
+%cup 
 %full
 %line
 %char
-L=[a-zA-Z_]
-D= 0 | [1-9][0-9]*
-espacio=[ ,\t,\r,\n,\f]+
+L=[a-zA-Z_]+
+D=[0-9]+
+espacio=[ ,\t,\r,\n]+
 %{
     private Symbol symbol(int type, Object value){
         return new Symbol(type, yyline, yycolumn, value);
@@ -34,6 +31,10 @@ espacio=[ ,\t,\r,\n,\f]+
 
 /* Comillas */
 ( "\"" ) {return new Symbol(sym.Comillas, yychar, yyline, yytext());}
+/* Simples */
+( "\'" ) {return new Symbol(sym.Comillas_s, yychar, yyline, yytext());}
+/* Backslash */
+( "\\" ) {return new Symbol(sym.Back, yychar, yyline, yytext());}
 
 /* Tipos de datos */
 /* Byte */
@@ -50,21 +51,28 @@ espacio=[ ,\t,\r,\n,\f]+
 ( double ) {return new Symbol(sym.T_double, yychar, yyline, yytext());}
 /* Tipo de dato String */
 ( string ) {return new Symbol(sym.Cadena, yychar, yyline, yytext());}
+/* Tipo de dato boolean */
+( bool ) {return new Symbol(sym.T_bool, yychar, yyline, yytext());}
 
 /* Palabra reservada If */
 ( if ) {return new Symbol(sym.If, yychar, yyline, yytext());}
 /* Palabra reservada Else */
 ( else ) {return new Symbol(sym.Else, yychar, yyline, yytext());}
-/* Palabra reservada While */
-( while ) {return new Symbol(sym.While, yychar, yyline, yytext());}
+
 /* Palabra reservada Switch */
 ( switch ) {return new Symbol(sym.Switch, yychar, yyline, yytext());}
-/* Palabra reservada Default */
+/* Case */
+( case ) {return new Symbol(sym.Case, yychar, yyline, yytext());}
+/* Default */
 ( default ) {return new Symbol(sym.Default, yychar, yyline, yytext());}
-/* Palabra reservada For */
-( for ) {return new Symbol(sym.For, yychar, yyline, yytext());}
+
+/* Palabra reservada While */
+( while ) {return new Symbol(sym.While, yychar, yyline, yytext());}
 /* Palabra reservada Do */
 ( do ) {return new Symbol(sym.Do, yychar, yyline, yytext());}
+
+/* Palabra reservada For */
+( for ) {return new Symbol(sym.For, yychar, yyline, yytext());}
 
 /* Operador Igual */
 ( "=" ) {return new Symbol(sym.Igual, yychar, yyline, yytext());}
@@ -76,6 +84,8 @@ espacio=[ ,\t,\r,\n,\f]+
 ( "*" ) {return new Symbol(sym.Multiplicacion, yychar, yyline, yytext());}
 /* Operador Division */
 ( "/" ) {return new Symbol(sym.Division, yychar, yyline, yytext());}
+/* Operador Modulo */
+( "%" ) {return new Symbol(sym.Modulo, yychar, yyline, yytext());}
 
 /* Operadores logicos */
 /* AND */
@@ -116,8 +126,8 @@ espacio=[ ,\t,\r,\n,\f]+
 (  "*=" ) {return new Symbol(sym.Op_asigMult, yychar, yyline, yytext());}
 /* Asignacion y division */
 ( "/=" ) {return new Symbol(sym.Op_asigDiv, yychar, yyline, yytext());}
-/* Asignacion y resto */
-( "%=" ) {return new Symbol(sym.Op_asigResto, yychar, yyline, yytext());}
+/* Asignacion y modulo */
+( "%=" ) {return new Symbol(sym.Op_asigModulo, yychar, yyline, yytext());}
 
 /* Operadores Incremento */
 ( "++" ) {return new Symbol(sym.Op_incremento, yychar, yyline, yytext());}
@@ -145,11 +155,27 @@ espacio=[ ,\t,\r,\n,\f]+
 /* Corchete de cierre */
 ( "]" ) {return new Symbol(sym.Corchete_c, yychar, yyline, yytext());}
 
+/* Marcador de importación */
+( #include ) {return new Symbol(sym.Include, yychar, yyline, yytext());}
+
+/* Marcador de inicio de IOStream */
+( iostream ) {return new Symbol(sym.Iostream, yychar, yyline, yytext());}
+
+/* Marcador de Using */
+( using ) {return new Symbol(sym.Using, yychar, yyline, yytext());}
+/* Marcador de NameSpace */
+( namespace ) {return new Symbol(sym.Namespace, yychar, yyline, yytext());}
+/* Marcador de STD */
+( std ) {return new Symbol(sym.Std, yychar, yyline, yytext());}
+
 /* Marcador de inicio de algoritmo */
 ( "main" ) {return new Symbol(sym.Main, yychar, yyline, yytext());}
 
 /* Marcador de inicio de metodos */
 ( "void" ) {return new Symbol(sym.Void, yychar, yyline, yytext());}
+
+/* Marcador de salida */
+( break ) {return new Symbol(sym.Break, yychar, yyline, yytext());}
 
 /* Marcador de inicio de impresion en pantalla */
 ( "printf" ) {return new Symbol(sym.Printf, yychar, yyline, yytext());}
@@ -157,10 +183,22 @@ espacio=[ ,\t,\r,\n,\f]+
 /* Marcador de inicio de impresion en pantalla */
 ( "scanf" ) {return new Symbol(sym.Scanf, yychar, yyline, yytext());}
 
+/* Cin */
+( cin ) {return new Symbol(sym.Cin, yychar, yyline, yytext());}
+/* Cout */
+( cout ) {return new Symbol(sym.Cout, yychar, yyline, yytext());}
+
+/* Return */
+( return ) {return new Symbol(sym.Return, yychar, yyline, yytext());}
+/* Define */
+( #define ) {return new Symbol(sym.Define, yychar, yyline, yytext());}
+
 /* Punto y coma */
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
 /* Punto */
 ( "." ) {return new Symbol(sym.Punto, yychar, yyline, yytext());}
+/* Dos puntos */
+( ":" ) {return new Symbol(sym.DPuntos, yychar, yyline, yytext());}
 
 /* Identificador */
 {L}({L}|{D})* {return new Symbol(sym.Identificador, yychar, yyline, yytext());}
@@ -170,3 +208,4 @@ espacio=[ ,\t,\r,\n,\f]+
 
 /* Error de analisis */
  . {return new Symbol(sym.ERROR, yychar, yyline, yytext());}
+

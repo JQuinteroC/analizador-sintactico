@@ -3,18 +3,20 @@ package Analizador;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java_cup.runtime.Symbol;
 import javax.swing.JFileChooser;
 
-/**
- *
- * @author mdelgado
- */
+
+/*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
+
 public class FrmAnalizador extends javax.swing.JFrame {
 
     /**
@@ -41,6 +43,11 @@ public class FrmAnalizador extends javax.swing.JFrame {
         txtAnalizarSin = new javax.swing.JTextArea();
         btnBorrarSin = new javax.swing.JButton();
         btnBorrarCod = new javax.swing.JButton();
+        btnGenIntermedio = new javax.swing.JButton();
+        btnEjecutar = new javax.swing.JButton();
+        btnGenEnsamblador = new javax.swing.JButton();
+        btnGenObjeto = new javax.swing.JButton();
+        btnGenEjecutable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,56 +111,114 @@ public class FrmAnalizador extends javax.swing.JFrame {
             }
         });
 
+        btnGenIntermedio.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnGenIntermedio.setText("Intermedio");
+        btnGenIntermedio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenIntermedioActionPerformed(evt);
+            }
+        });
+
+        btnEjecutar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnEjecutar.setText("Ejecutar");
+        btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEjecutarActionPerformed(evt);
+            }
+        });
+
+        btnGenEnsamblador.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnGenEnsamblador.setText("Ensamblador");
+        btnGenEnsamblador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenEnsambladorActionPerformed(evt);
+            }
+        });
+
+        btnGenObjeto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnGenObjeto.setText("Objeto");
+        btnGenObjeto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenObjetoActionPerformed(evt);
+            }
+        });
+
+        btnGenEjecutable.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnGenEjecutable.setText("Ejecutable");
+        btnGenEjecutable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenEjecutableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBorrarCod))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnASintactico)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBorrarSin))
-                    .addComponent(jScrollPane1))
-                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnALexico)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                                .addComponent(btnBorrarCod))
+                            .addComponent(btnASintactico)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnBorrarSin)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap()
+                        .addComponent(btnGenIntermedio)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnGenEnsamblador)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnGenObjeto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(btnGenEjecutable)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnEjecutar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnALexico)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBorrar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnALexico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrarCod)))
+                        .addComponent(btnArchivo)
+                        .addComponent(btnBorrarCod)
+                        .addComponent(btnALexico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnASintactico)
+                            .addComponent(btnBorrarSin))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnASintactico)
-                    .addComponent(btnBorrarSin))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGenIntermedio)
+                    .addComponent(btnGenObjeto)
+                    .addComponent(btnEjecutar)
+                    .addComponent(btnGenEjecutable)
+                    .addComponent(btnGenEnsamblador))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -182,23 +247,26 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Cadena:
                     resultado += "  <Tipo de dato>\t" + lexicos.lexemas + "\n";
                     break;
-                case T_byte:
-                    resultado += "  <Tipo de dato byte>\t" + lexicos.lexemas + "\n";
-                    break;
                 case T_int:
-                    resultado += "  <Tipo de dato int>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada int>\t" + lexicos.lexemas + "\n";
+                    break;
+                case T_byte:
+                    resultado += "  <Reservada byte>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_char:
-                    resultado += "  <Tipo de dato char>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada char>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_long:
-                    resultado += "  <Tipo de dato long>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada long>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_float:
-                    resultado += "  <Tipo de dato float>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada float>\t" + lexicos.lexemas + "\n";
+                    break;
+                case T_bool:
+                    resultado += "  <Reservada bool>\t" + lexicos.lexemas + "\n";
                     break;
                 case T_double:
-                    resultado += "  <Tipo de dato double>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada double>\t" + lexicos.lexemas + "\n";
                     break;
                 case If:
                     resultado += "  <Reservada if>\t" + lexicos.lexemas + "\n";
@@ -210,16 +278,22 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     resultado += "  <Reservada while>\t" + lexicos.lexemas + "\n";
                     break;
                 case Switch:
-                    resultado += "  <Reservada switch>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada Switch>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Case:
+                    resultado += "  <Reservada Case>\t" + lexicos.lexemas + "\n";
                     break;
                 case Default:
-                    resultado += "  <Reservada default>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Reservada Default>\t" + lexicos.lexemas + "\n";
                     break;
-                case For:
-                    resultado += "  <Reservada for>\t" + lexicos.lexemas + "\n";
+                case Back:
+                    resultado += "  <backslash>\t" + lexicos.lexemas + "\n";
                     break;
-                case Do:
-                    resultado += "  <Reservada do>\t" + lexicos.lexemas + "\n";
+                case Cout:
+                    resultado += "  <Reservada cout>\t" + lexicos.lexemas + "\n";
+                    break;
+                case Cin:
+                    resultado += "  <Reservada cin>\t" + lexicos.lexemas + "\n";
                     break;
                 case Igual:
                     resultado += "  <Operador igual>\t" + lexicos.lexemas + "\n";
@@ -236,21 +310,24 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Division:
                     resultado += "  <Operador division>\t" + lexicos.lexemas + "\n";
                     break;
+                case Modulo:
+                    resultado += "  <Operador modulo>\t" + lexicos.lexemas + "\n";
+                    break;
                 case Op_and:
                     resultado += "  <Operador logico AND>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_or:
                     resultado += "  <Operador logico OR>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_not:
                     resultado += "  <Operador logico NOT>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_andB:
                     resultado += "  <Operador binario AND>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_orB:
                     resultado += "  <Operador binario OR>\t" + lexicos.lexemas + "\n";
-                    break;
+                    break;                    
                 case Op_incremento:
                     resultado += "  <Operador incremento>\t" + lexicos.lexemas + "\n";
                     break;
@@ -258,28 +335,28 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     resultado += "  <Operador decremento>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_mayor:
-                    resultado += "  <Operador relacional Mayor que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Mayor que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_menor:
-                    resultado += "  <Operador relacional Menor que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Menor que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_igual:
-                    resultado += "  <Operador relacional Igual que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Igual que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_diferente:
-                    resultado += "  <Operador relacional Diferente que >\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Diferente que >\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_mayorE:
-                    resultado += "  <Operador relacional Mayor o igual que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Mayor o igual que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_menorE:
-                    resultado += "  <Operador relacional Menor o igual que>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador  Menor o igual que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_desIzq:
-                    resultado += "  <Operador binario desplazamiento a la izquierda >\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador desplazamiento izq. >\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_desDer:
-                    resultado += "  <Operador binario desplazamiento a la derecha>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador desplazamiento der.>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_asigSuma:
                     resultado += "  <Operador atribucion y suma>\t" + lexicos.lexemas + "\n";
@@ -293,8 +370,8 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Op_asigDiv:
                     resultado += "  <Operador atribucion y división>\t" + lexicos.lexemas + "\n";
                     break;
-                case Op_asigResto:
-                    resultado += "  <Operador atribucion y resto>\t" + lexicos.lexemas + "\n";
+                case Op_asigModulo:
+                    resultado += "  <Operador atribucion y modulo>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_boolTrue:
                     resultado += "  <Operador booleano True>\t" + lexicos.lexemas + "\n";
@@ -326,9 +403,15 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Void:
                     resultado += "  <Reservada void>\t" + lexicos.lexemas + "\n";
                     break;
+                case Break:
+                    resultado += "  <Reservada break>\t" + lexicos.lexemas + "\n";
+                    break;
                 case Printf:
                     resultado += "  <Reservada printf>\t" + lexicos.lexemas + "\n";
-                    break;                    
+                    break; 
+                case Scanf:
+                    resultado += "  <Reservada scanf>\t" + lexicos.lexemas + "\n";
+                    break;                      
                 case P_coma:
                     resultado += "  <Punto y coma>\t" + lexicos.lexemas + "\n";
                     break;
@@ -341,6 +424,30 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case Numero:
                     resultado += "  <Numero>\t\t" + lexicos.lexemas + "\n";
                     break;
+                case Using:
+                    resultado += "  <Using>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Namespace:
+                    resultado += "  <Namespace>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Std:
+                    resultado += "  <STD>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Include:
+                    resultado += "  <Reservada #inlude>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case DPuntos:
+                    resultado += "  <Dos puntos>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Return:
+                    resultado += "  <Return>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Define:
+                    resultado += "  <Definición de constante>\t\t" + lexicos.lexemas + "\n";
+                    break;
+                case Iostream:
+                    resultado += "  <Definición de lib. IOSstream>\t\t" + lexicos.lexemas + "\n";
+                    break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
                     break;
@@ -349,7 +456,6 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
             }
         }
-
     }
 
     private void btnALexicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnALexicoActionPerformed
@@ -361,15 +467,17 @@ public class FrmAnalizador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnALexicoActionPerformed
 
     private void btnArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArchivoActionPerformed
-        JFileChooser escoger = new JFileChooser();
+        JFileChooser escoger = new JFileChooser(System.getProperty("user.dir"));
         escoger.showOpenDialog(null);
-        File arc = new File(escoger.getSelectedFile().getAbsolutePath());
-
+        
         try {
+            File arc = new File(escoger.getSelectedFile().getAbsolutePath());
             String ST = new String(Files.readAllBytes(arc.toPath()));
             Resultado.setText(ST);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(NullPointerException ex){
+            System.out.println("Archivo no seleccionado");
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -402,10 +510,131 @@ public class FrmAnalizador extends javax.swing.JFrame {
         Resultado.setText(null);
     }//GEN-LAST:event_btnBorrarCodActionPerformed
 
+    private void btnGenIntermedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenIntermedioActionPerformed
+        //Escribir Archivo
+        FileWriter fw = null;
+        
+        try
+        {
+            Path archivo = Paths.get("Programa.cpp");
+            Files.delete(archivo);
+
+            fw = new FileWriter("Programa.cpp",true);
+            fw.flush();
+            fw.write(Resultado.getText());
+
+        }
+        catch (IOException ex) 
+            {
+                ex.printStackTrace();
+            } 
+            finally 
+            {
+               if (fw!=null)
+               {  
+                   try {
+                       fw.close();
+                   } catch (IOException ex) {
+                       Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+               }
+            }
+        
+        // Ejecución
+        try {
+            
+            String[] array = { "cmd", "/C", "start", 
+            "1_Intermedio.bat" };
+            Runtime.getRuntime().exec(array);
+            System.out.println("1. Creación de Archivo intermedio.");
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+        /*
+        try {
+            String[] intermedio = {"1_Intermedio.bat"};
+            Runtime.getRuntime().exec(intermedio);
+            String[] gassembler = {"2_Ensamblador.bat"};
+            Runtime.getRuntime().exec(gassembler);
+            System.out.println("Ejecucion del convertidor de cpp a assembler");
+        } catch (IOException ex) {
+             System.out.println(ex);
+        }
+        */
+    }//GEN-LAST:event_btnGenIntermedioActionPerformed
+
+    private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
+       
+        try {
+            
+            String[] array = { "cmd", "/C", "start", 
+            "5_Correr.bat" };
+            Runtime.getRuntime().exec(array);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_btnEjecutarActionPerformed
+
+    private void btnGenEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEnsambladorActionPerformed
+
+        try {
+            
+            String[] array = { "cmd", "/C", "start", 
+            "2_Ensamblador.bat" };
+            Runtime.getRuntime().exec(array);
+            System.out.println("2. Creación de Ensamblador.");
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        
+        /*
+        try {
+            String[] gobjeto = {"3_Objeto.bat"};
+            Runtime.getRuntime().exec(gobjeto);
+            String[] gejecutable = {"4_Ejecutable.bat"};
+            Runtime.getRuntime().exec(gejecutable);
+            System.out.println("Ejecucion del convertidor de cpp a assembler");
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        */
+    }//GEN-LAST:event_btnGenEnsambladorActionPerformed
+
+    private void btnGenObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenObjetoActionPerformed
+      
+        try {
+            
+            String[] array = { "cmd", "/C", "start", 
+            "3_Objeto.bat" };
+            Runtime.getRuntime().exec(array);
+            System.out.println("3. Creación de Objetos.");
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnGenObjetoActionPerformed
+
+    private void btnGenEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEjecutableActionPerformed
+      
+        try {
+            
+            String[] array = { "cmd", "/C", "start", 
+            "4_Ejecutable.bat" };
+            Runtime.getRuntime().exec(array);
+            System.out.println("4. Creación de Ejecutable.");
+        } catch (IOException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+    }//GEN-LAST:event_btnGenEjecutableActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IllegalAccessException {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -414,7 +643,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmAnalizador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -436,6 +665,11 @@ public class FrmAnalizador extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnBorrarCod;
     private javax.swing.JButton btnBorrarSin;
+    private javax.swing.JButton btnEjecutar;
+    private javax.swing.JButton btnGenEjecutable;
+    private javax.swing.JButton btnGenEnsamblador;
+    private javax.swing.JButton btnGenIntermedio;
+    private javax.swing.JButton btnGenObjeto;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
