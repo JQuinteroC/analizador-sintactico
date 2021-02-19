@@ -362,7 +362,8 @@ PRINTF ::=
     Printf Parent_a Parent_c P_coma | 
     Printf Parent_a Comillas Comillas Parent_c P_coma | 
     Printf Parent_a Comillas SENTENCIA_PRINTF Comillas Parent_c P_coma |
-    Printf Parent_a Comillas SENTENCIA_PRINTF Comillas Coma Identificador Parent_c P_coma 
+    Printf Parent_a Comillas SENTENCIA_PRINTF Comillas TEXTO Parent_c P_coma |
+    Printf Parent_a Comillas SENTENCIA_PRINTF Comillas Comillas TEXTO Comillas Parent_c P_coma 
 ;
 
 SENTENCIA_PRINTF ::=
@@ -371,7 +372,8 @@ SENTENCIA_PRINTF ::=
 ;
 
 DEFINE ::=
-    Define Identificador Numero P_coma
+    Define Identificador Numero P_coma |
+    Define Identificador Numero Punto Numero P_coma 
 ;
 
 SWITCH ::=
@@ -398,30 +400,23 @@ SENTENCIA_SWITCH ::=
 SENTENCIA_SCANF ::=
     Identificador |
    //***
-    Comillas Modulo Identificador Comillas Coma Op_Nand Identificador
+    Comillas Modulo Identificador Comillas Op_Nand Identificador
   // ***
-    Comillas Modulo Identificador Comillas Coma Identificador
+    Comillas Modulo Identificador Comillas Identificador
 ; 
 */
 
 CIN ::=
     Cin Op_desDer P_coma |
-/*
-    Cin Op_desDer SENTENCIA_CIN P_coma |
-    Cin Op_desDer SENTENCIA_CIN Op_desDer SENTENCIA_CIN P_coma
-*/
     Cin Op_desDer Identificador P_coma |
     Cin Op_desDer Identificador Op_desDer SENTENCIA_CIN P_coma
 ;
-/*
-SENTENCIA_CIN ::=
-    Identificador
-;
-*/
 
 COUT ::=
     Cout Op_desIzq SENTENCIA_COUT P_coma |
-    Cout Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT P_coma
+    Cout Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT P_coma |
+    Cout Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT P_coma |
+    Cout Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT Op_desIzq SENTENCIA_COUT P_coma
 ;
 
 SENTENCIA_COUT ::=

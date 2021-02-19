@@ -333,10 +333,10 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     resultado += "  <Operador  Menor o igual que>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_desIzq:
-                    resultado += "  <Operador binario desplazamiento a la izquierda >\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador desplazamiento izq. >\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_desDer:
-                    resultado += "  <Operador binario desplazamiento a la derecha>\t" + lexicos.lexemas + "\n";
+                    resultado += "  <Operador desplazamiento der.>\t" + lexicos.lexemas + "\n";
                     break;
                 case Op_asigSuma:
                     resultado += "  <Operador atribucion y suma>\t" + lexicos.lexemas + "\n";
