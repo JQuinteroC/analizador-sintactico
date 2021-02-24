@@ -1,5 +1,8 @@
 package Analizador;
 import static Analizador.Tokens.*;
+
+/*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
+
 %%
 %class Lexico
 %type Tokens

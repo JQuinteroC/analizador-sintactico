@@ -2,20 +2,20 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "Programa.cpp"
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 1 3
-# 9 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 1 3
-# 10 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 1 3
-# 12 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_mac.h" 1 3
-# 46 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 1 3
+# 9 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 1 3
+# 10 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 1 3
+# 12 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_mac.h" 1 3
+# 46 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
              
-# 55 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+# 55 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
              
-# 13 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_secapi.h" 1 3
-# 47 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_secapi.h" 3
+# 13 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_secapi.h" 1 3
+# 47 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_secapi.h" 3
 extern "C++" {
 template <bool __test, typename __dsttype>
   struct __if_array;
@@ -24,17 +24,17 @@ template <typename __dsttype>
     typedef __dsttype __type;
 };
 }
-# 14 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
-# 282 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 1 3
-# 9 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 1 3
-# 686 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h" 1 3
-# 687 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h" 1 3
-# 688 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
-# 10 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 2 3
+# 14 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
+# 282 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 1 3
+# 9 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 1 3
+# 686 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h" 1 3
+# 687 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h" 1 3
+# 688 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
+# 10 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 2 3
 
 
 #pragma pack(push,_CRT_PACKING)
@@ -55,30 +55,30 @@ extern "C" {
 
 
   typedef __gnuc_va_list va_list;
-# 97 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 3
+# 97 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/vadefs.h" 3
 }
 
 
 
 #pragma pack(pop)
-# 283 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
+# 283 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 2 3
 
 
 #pragma pack(push,_CRT_PACKING)
-# 377 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 377 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 __extension__ typedef unsigned long long size_t;
-# 387 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 387 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 __extension__ typedef long long ssize_t;
-# 399 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 399 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 __extension__ typedef long long intptr_t;
-# 412 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 412 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 __extension__ typedef unsigned long long uintptr_t;
-# 425 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 425 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 __extension__ typedef long long ptrdiff_t;
-# 443 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 443 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 typedef unsigned short wint_t;
 typedef unsigned short wctype_t;
-# 463 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 463 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 typedef int errno_t;
 
 
@@ -98,7 +98,7 @@ __extension__ typedef long long __time64_t;
 
 
 typedef __time64_t time_t;
-# 651 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 651 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw.h" 3
 extern "C" {
 
 
@@ -121,10 +121,10 @@ const char *__mingw_get_crt_info (void);
 
 
 #pragma pack(pop)
-# 11 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 2 3
-# 26 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 3
+# 11 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 2 3
+# 26 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 3
 typedef size_t rsize_t;
-# 153 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 3
+# 153 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/crtdefs.h" 3
 struct threadlocaleinfostruct;
 struct threadmbcinfostruct;
 typedef struct threadlocaleinfostruct *pthreadlocinfo;
@@ -172,23 +172,23 @@ typedef struct threadlocaleinfostruct {
   const unsigned char *pcumap;
   struct __lc_time_data *lc_time_curr;
 } threadlocinfo;
-# 10 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 1 3 4
-# 34 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 3 4
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/syslimits.h" 1 3 4
+# 10 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 1 3 4
+# 34 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 3 4
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/syslimits.h" 1 3 4
 
 
 
 
 
 
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 1 3 4
-# 168 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 3 4
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/limits.h" 1 3 4
-# 169 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 2 3 4
-# 8 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/syslimits.h" 2 3 4
-# 35 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 2 3 4
-# 11 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 1 3 4
+# 168 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 3 4
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/limits.h" 1 3 4
+# 169 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 2 3 4
+# 8 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/syslimits.h" 2 3 4
+# 35 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed/limits.h" 2 3 4
+# 11 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
 
 
 
@@ -198,9 +198,9 @@ typedef struct threadlocaleinfostruct {
 
 
 extern "C" {
-# 40 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 40 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   typedef int (__attribute__((__cdecl__)) *_onexit_t)(void);
-# 50 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 50 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   typedef struct _div_t {
     int quot;
     int rem;
@@ -245,9 +245,9 @@ extern "C" {
     unsigned char ld12[12];
   } _LDBL12;
 #pragma pack()
-# 105 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 105 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern int * __imp___mb_cur_max;
-# 131 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 131 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   typedef void (__attribute__((__cdecl__)) *_purecall_handler)(void);
 
   __attribute__ ((__dllimport__)) _purecall_handler __attribute__((__cdecl__)) _set_purecall_handler(_purecall_handler _Handler);
@@ -274,7 +274,7 @@ extern "C" {
 
   extern __attribute__ ((__dllimport__)) char *_sys_errlist[1];
   extern __attribute__ ((__dllimport__)) int _sys_nerr;
-# 171 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 171 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern int * __imp___argc;
 
 
@@ -292,13 +292,13 @@ extern "C" {
 
 
   extern wchar_t *** __imp___wargv;
-# 199 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 199 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern char *** __imp__environ;
-# 208 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 208 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern wchar_t *** __imp__wenviron;
-# 217 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 217 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern char ** __imp__pgmptr;
-# 226 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 226 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern wchar_t ** __imp__wpgmptr;
 
 
@@ -321,13 +321,13 @@ extern "C" {
 
 
   extern unsigned int * __imp__osplatform;
-# 256 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 256 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern unsigned int * __imp__osver;
-# 265 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 265 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern unsigned int * __imp__winver;
-# 274 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 274 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern unsigned int * __imp__winmajor;
-# 283 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 283 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   extern unsigned int * __imp__winminor;
 
 
@@ -429,7 +429,7 @@ extern "C" {
   int __attribute__((__cdecl__)) rand(void);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _set_error_mode(int _Mode);
   void __attribute__((__cdecl__)) srand(unsigned int _Seed);
-# 404 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 404 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   double __attribute__((__cdecl__)) __attribute__ ((__nothrow__)) strtod(const char * __restrict__ _Str,char ** __restrict__ _EndPtr);
   float __attribute__((__cdecl__)) __attribute__ ((__nothrow__)) strtof(const char * __restrict__ nptr, char ** __restrict__ endptr);
 
@@ -496,7 +496,7 @@ extern "C" {
   double __attribute__((__cdecl__)) __mingw_wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
   float __attribute__((__cdecl__)) __mingw_wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
   long double __attribute__((__cdecl__)) __mingw_wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
-# 482 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 482 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   double __attribute__((__cdecl__)) wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
   float __attribute__((__cdecl__)) wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
 
@@ -602,7 +602,7 @@ extern "C" {
 
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _seterrormode(int _Mode) __attribute__ ((__deprecated__));
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _sleep(unsigned long _Duration) __attribute__ ((__deprecated__));
-# 607 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 607 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
   char *__attribute__((__cdecl__)) ecvt(double _Val,int _NumOfDigits,int *_PtDec,int *_PtSign) ;
   char *__attribute__((__cdecl__)) fcvt(double _Val,int _NumOfDec,int *_PtDec,int *_PtSign) ;
   char *__attribute__((__cdecl__)) gcvt(double _Val,int _NumOfDigits,char *_DstBuf) ;
@@ -643,24 +643,24 @@ extern "C" {
   __extension__ char *__attribute__((__cdecl__)) ulltoa (unsigned long long , char *, int);
   __extension__ wchar_t *__attribute__((__cdecl__)) lltow (long long, wchar_t *, int);
   __extension__ wchar_t *__attribute__((__cdecl__)) ulltow (unsigned long long, wchar_t *, int);
-# 662 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
+# 662 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 3
 }
 
 
 #pragma pack(pop)
 
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h" 1 3
-# 9 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 1 3
-# 10 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h" 2 3
-# 668 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 1 3
-# 11 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h" 1 3
+# 9 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 1 3
+# 10 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h" 2 3
+# 668 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 1 3
+# 11 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
 #pragma pack(push,_CRT_PACKING)
 
 
 extern "C" {
-# 46 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
+# 46 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
   typedef struct _heapinfo {
     int *_pentry;
     size_t _size;
@@ -669,10 +669,10 @@ extern "C" {
 
 
   extern unsigned int _amblksiz;
-# 65 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
+# 65 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
        
        
-# 97 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
+# 97 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
        
        
 
@@ -708,7 +708,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _heapwalk(_HEAPINFO *_EntryInfo);
   __attribute__ ((__dllimport__)) size_t __attribute__((__cdecl__)) _heapused(size_t *_Used,size_t *_Commit);
   __attribute__ ((__dllimport__)) intptr_t __attribute__((__cdecl__)) _get_heap_handle(void);
-# 144 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
+# 144 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
   static __inline void *_MarkAllocaS(void *_Ptr,unsigned int _Marker) {
     if(_Ptr) {
       *((unsigned int*)_Ptr) = _Marker;
@@ -716,7 +716,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
     }
     return _Ptr;
   }
-# 163 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
+# 163 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
   static __inline void __attribute__((__cdecl__)) _freea(void *_Memory) {
     unsigned int _Marker;
     if(_Memory) {
@@ -732,23 +732,23 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 
     }
   }
-# 206 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
+# 206 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/malloc.h" 3
 }
 
 
 #pragma pack(pop)
-# 669 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
+# 669 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdlib.h" 2 3
 # 2 "Programa.cpp" 2
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 1 3
-# 11 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_print_push.h" 1 3
-# 12 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 1 3
+# 11 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_print_push.h" 1 3
+# 12 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
 
 #pragma pack(push,_CRT_PACKING)
 
 
 extern "C" {
-# 26 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 26 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   struct _iobuf {
     char *_ptr;
     int _cnt;
@@ -760,8 +760,8 @@ extern "C" {
     char *_tmpfname;
   };
   typedef struct _iobuf FILE;
-# 80 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_off_t.h" 1 3
+# 80 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_off_t.h" 1 3
 
 
 
@@ -777,16 +777,16 @@ extern "C" {
   __extension__ typedef long long _off64_t;
 
   __extension__ typedef long long off64_t;
-# 26 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_off_t.h" 3
+# 26 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_off_t.h" 3
 typedef off32_t off_t;
-# 81 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
+# 81 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
 
 
 
   __attribute__ ((__dllimport__)) FILE *__attribute__((__cdecl__)) __iob_func(void);
-# 103 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 103 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   __extension__ typedef long long fpos_t;
-# 139 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 139 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
 extern
   __attribute__((__format__ (gnu_scanf, 2, 3))) __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
@@ -837,7 +837,7 @@ extern
 extern
   __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
   int __attribute__((__cdecl__)) __mingw_vasprintf(char ** __restrict__ , const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
-# 377 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 377 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   int __attribute__((__cdecl__)) fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
   int __attribute__((__cdecl__)) printf(const char * __restrict__ _Format,...);
   int __attribute__((__cdecl__)) sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...) ;
@@ -925,12 +925,12 @@ extern
 
   int fseeko64(FILE* stream, _off64_t offset, int whence);
   int fseeko(FILE* stream, _off_t offset, int whence);
-# 472 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 472 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   long __attribute__((__cdecl__)) ftell(FILE *_File);
 
   _off_t ftello(FILE * stream);
   _off64_t ftello64(FILE * stream);
-# 484 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 484 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   __extension__ int __attribute__((__cdecl__)) _fseeki64(FILE *_File,long long _Offset,int _Origin);
   __extension__ long long __attribute__((__cdecl__)) _ftelli64(FILE *_File);
   size_t __attribute__((__cdecl__)) fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
@@ -1050,7 +1050,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   int __attribute__((__cdecl__)) __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
                                                       __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
-# 725 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 725 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   int __attribute__((__cdecl__)) fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) ;
   int __attribute__((__cdecl__)) swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...) ;
   int __attribute__((__cdecl__)) wscanf(const wchar_t * __restrict__ _Format,...) ;
@@ -1085,7 +1085,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   int __attribute__((__cdecl__)) wprintf(const wchar_t * __restrict__ _Format,...);
   int __attribute__((__cdecl__)) vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
   int __attribute__((__cdecl__)) vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-# 768 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 768 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   __attribute__ ((__dllimport__)) FILE *__attribute__((__cdecl__)) _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode,int _ShFlag);
 
 
@@ -1142,8 +1142,8 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
 
 
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/swprintf.inl" 1 3
-# 21 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/swprintf.inl" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/swprintf.inl" 1 3
+# 21 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/swprintf.inl" 3
 static __attribute__ ((__unused__)) __inline__ __attribute__((__cdecl__))
                                                       __attribute__ ((__nonnull__ (3)))
 int vswprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, __builtin_va_list __local_argv)
@@ -1193,8 +1193,8 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
 }
 
 }
-# 825 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
-# 834 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 825 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
+# 834 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   __attribute__ ((__dllimport__)) wchar_t *__attribute__((__cdecl__)) _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
@@ -1216,7 +1216,7 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fgetwc_nolock(FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fputwc_nolock(wchar_t _Ch,FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _ungetwc_nolock(wint_t _Ch,FILE *_File);
-# 884 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 884 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _lock_file(FILE *_File);
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _unlock_file(FILE *_File);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fclose_nolock(FILE *_File);
@@ -1243,11 +1243,11 @@ int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
   int __attribute__((__cdecl__)) getw(FILE *_File) ;
   int __attribute__((__cdecl__)) putw(int _Ch,FILE *_File) ;
   int __attribute__((__cdecl__)) rmtmp(void) ;
-# 926 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 926 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
 int __attribute__((__cdecl__)) __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
-# 940 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 940 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
 int __attribute__((__cdecl__)) __mingw_str_utf8_wide (const char *const mbptr, wchar_t ** wptr, size_t * buflen);
-# 949 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
+# 949 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 3
 void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 
@@ -1258,14 +1258,14 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 #pragma pack(pop)
 
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 1 3
-# 9 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 3
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 1 3
-# 10 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 2 3
-# 960 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 1 3
+# 9 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 1 3
+# 10 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 2 3
+# 960 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
 
-# 1 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_print_pop.h" 1 3
-# 962 "C:/Users/Admin/Documents/GitHub/analizador-sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
+# 1 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/_mingw_print_pop.h" 1 3
+# 962 "C:/Users/jose0/Documents/UD/06/ciencias_3/Sintactico/Compilador/MinGW64/x86_64-w64-mingw32/include/stdio.h" 2 3
 # 3 "Programa.cpp" 2
 using namespace std;
 int main(){

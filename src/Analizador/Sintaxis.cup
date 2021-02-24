@@ -378,6 +378,7 @@ DEFINE ::=
 
 SWITCH ::=
     Switch Parent_a Identificador Parent_c Llave_a Llave_c |
+    Switch Parent_a Identificador Parent_c SENTENCIA_SWITCH |
     Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH Llave_c |
     Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH Llave_c |
     Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH SENTENCIA_SWITCH Llave_c |
@@ -389,6 +390,11 @@ SWITCH ::=
 ;
 
 SENTENCIA_SWITCH ::=
+    Case Numero DPuntos P_coma |
+    Case Numero DPuntos SENTENCIA P_coma |
+    Case Identificador DPuntos P_coma |
+    Case Identificador DPuntos SENTENCIA P_coma |
+
     Case Numero DPuntos Break P_coma |
     Case Numero DPuntos SENTENCIA Break P_coma |
     Case Identificador DPuntos Break P_coma |

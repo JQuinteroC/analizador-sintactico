@@ -113,6 +113,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
         btnGenIntermedio.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnGenIntermedio.setText("Intermedio");
+        btnGenIntermedio.setEnabled(false);
         btnGenIntermedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenIntermedioActionPerformed(evt);
@@ -121,6 +122,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
         btnEjecutar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnEjecutar.setText("Ejecutar");
+        btnEjecutar.setEnabled(false);
         btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEjecutarActionPerformed(evt);
@@ -129,6 +131,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
         btnGenEnsamblador.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnGenEnsamblador.setText("Ensamblador");
+        btnGenEnsamblador.setEnabled(false);
         btnGenEnsamblador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenEnsambladorActionPerformed(evt);
@@ -137,6 +140,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
         btnGenObjeto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnGenObjeto.setText("Objeto");
+        btnGenObjeto.setEnabled(false);
         btnGenObjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenObjetoActionPerformed(evt);
@@ -145,6 +149,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
         btnGenEjecutable.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnGenEjecutable.setText("Ejecutable");
+        btnGenEjecutable.setEnabled(false);
         btnGenEjecutable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenEjecutableActionPerformed(evt);
@@ -495,10 +500,18 @@ public class FrmAnalizador extends javax.swing.JFrame {
             s.parse();
             txtAnalizarSin.setText("Analisis realizado correctamente");
             txtAnalizarSin.setForeground(new Color(25, 111, 61));
+            
+            btnGenIntermedio.setEnabled(true);
         } catch (Exception ex) {
             Symbol sym = s.getS();
             txtAnalizarSin.setText("Error de sintaxis. Linea: " + (sym.right + 1) + " Columna: " + (sym.left + 1) + ", Texto: \"" + sym.value + "\"");
             txtAnalizarSin.setForeground(Color.red);
+            
+            btnGenIntermedio.setEnabled(false);
+            btnGenEnsamblador.setEnabled(false);
+            btnGenObjeto.setEnabled(false);
+            btnGenEjecutable.setEnabled(false);
+            btnEjecutar.setEnabled(false);
         }
     }//GEN-LAST:event_btnASintacticoActionPerformed
 
@@ -547,20 +560,11 @@ public class FrmAnalizador extends javax.swing.JFrame {
             "1_Intermedio.bat" };
             Runtime.getRuntime().exec(array);
             System.out.println("1. Creación de Archivo intermedio.");
+            txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n1. Creación de Archivo intermedio.");
+            btnGenEnsamblador.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-        }      
-        /*
-        try {
-            String[] intermedio = {"1_Intermedio.bat"};
-            Runtime.getRuntime().exec(intermedio);
-            String[] gassembler = {"2_Ensamblador.bat"};
-            Runtime.getRuntime().exec(gassembler);
-            System.out.println("Ejecucion del convertidor de cpp a assembler");
-        } catch (IOException ex) {
-             System.out.println(ex);
         }
-        */
     }//GEN-LAST:event_btnGenIntermedioActionPerformed
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
@@ -586,21 +590,11 @@ public class FrmAnalizador extends javax.swing.JFrame {
             "2_Ensamblador.bat" };
             Runtime.getRuntime().exec(array);
             System.out.println("2. Creación de Ensamblador.");
+            txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n2. Creación de Ensamblador.");
+            btnGenObjeto.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         }  
-        
-        /*
-        try {
-            String[] gobjeto = {"3_Objeto.bat"};
-            Runtime.getRuntime().exec(gobjeto);
-            String[] gejecutable = {"4_Ejecutable.bat"};
-            Runtime.getRuntime().exec(gejecutable);
-            System.out.println("Ejecucion del convertidor de cpp a assembler");
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-        */
     }//GEN-LAST:event_btnGenEnsambladorActionPerformed
 
     private void btnGenObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenObjetoActionPerformed
@@ -611,6 +605,8 @@ public class FrmAnalizador extends javax.swing.JFrame {
             "3_Objeto.bat" };
             Runtime.getRuntime().exec(array);
             System.out.println("3. Creación de Objetos.");
+            txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n3. Creación de Objetos.");
+            btnGenEjecutable.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -625,6 +621,8 @@ public class FrmAnalizador extends javax.swing.JFrame {
             "4_Ejecutable.bat" };
             Runtime.getRuntime().exec(array);
             System.out.println("4. Creación de Ejecutable.");
+            txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n4. Creación de Ejecutable.");
+            btnEjecutar.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         } 
