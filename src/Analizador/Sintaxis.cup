@@ -24,9 +24,9 @@ terminal Linea, If, Else, Do, While, For, Switch, Case, Break, Back,
     Op_boolFalse, Op_boolTrue, Op_incremento, Op_decremento,
     Op_asigResta, Op_asigDiv, Op_asigMult, Op_asigSuma, Op_asigModulo,
     Op_desDer, Op_desIzq, 
-    P_coma, Punto, Coma, DPuntos, Comillas, Comillas_s,
+    P_coma, Punto, DPuntos, Comillas,
     Cout, Cin, Return,
-    Parent_a, Parent_c, Llave_a, Llave_c, Corchete_a, Corchete_c,
+    Parent_a, Parent_c, Llave_a, Llave_c,
     Void, Main, Using, Namespace, Iostream, Std, Identificador,
     Printf, Scanf,
     Define, Include,
@@ -378,7 +378,6 @@ DEFINE ::=
 
 SWITCH ::=
     Switch Parent_a Identificador Parent_c Llave_a Llave_c |
-    Switch Parent_a Identificador Parent_c SENTENCIA_SWITCH |
     Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH Llave_c |
     Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH Llave_c |
     Switch Parent_a Identificador Parent_c Llave_a SENTENCIA_SWITCH SENTENCIA_SWITCH SENTENCIA_SWITCH Llave_c |

@@ -16,7 +16,6 @@ import javax.swing.JFileChooser;
 
 
 /*  José Luis Quintero Cañizalez - Edison Mauricio Riaño Alvarado */
-
 public class FrmAnalizador extends javax.swing.JFrame {
 
     /**
@@ -61,6 +60,11 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
         Resultado.setColumns(20);
         Resultado.setRows(5);
+        Resultado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ResultadoKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(Resultado);
 
         txtAnalizarLex.setColumns(20);
@@ -320,19 +324,19 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case Op_and:
                     resultado += "  <Operador logico AND>\t" + lexicos.lexemas + "\n";
-                    break;                    
+                    break;
                 case Op_or:
                     resultado += "  <Operador logico OR>\t" + lexicos.lexemas + "\n";
-                    break;                    
+                    break;
                 case Op_not:
                     resultado += "  <Operador logico NOT>\t" + lexicos.lexemas + "\n";
-                    break;                    
+                    break;
                 case Op_andB:
                     resultado += "  <Operador binario AND>\t" + lexicos.lexemas + "\n";
-                    break;                    
+                    break;
                 case Op_orB:
                     resultado += "  <Operador binario OR>\t" + lexicos.lexemas + "\n";
-                    break;                    
+                    break;
                 case Op_incremento:
                     resultado += "  <Operador incremento>\t" + lexicos.lexemas + "\n";
                     break;
@@ -413,10 +417,10 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     break;
                 case Printf:
                     resultado += "  <Reservada printf>\t" + lexicos.lexemas + "\n";
-                    break; 
+                    break;
                 case Scanf:
                     resultado += "  <Reservada scanf>\t" + lexicos.lexemas + "\n";
-                    break;                      
+                    break;
                 case P_coma:
                     resultado += "  <Punto y coma>\t" + lexicos.lexemas + "\n";
                     break;
@@ -474,14 +478,14 @@ public class FrmAnalizador extends javax.swing.JFrame {
     private void btnArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArchivoActionPerformed
         JFileChooser escoger = new JFileChooser(System.getProperty("user.dir"));
         escoger.showOpenDialog(null);
-        
+
         try {
             File arc = new File(escoger.getSelectedFile().getAbsolutePath());
             String ST = new String(Files.readAllBytes(arc.toPath()));
             Resultado.setText(ST);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-        } catch(NullPointerException ex){
+        } catch (NullPointerException ex) {
             System.out.println("Archivo no seleccionado");
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
@@ -500,13 +504,13 @@ public class FrmAnalizador extends javax.swing.JFrame {
             s.parse();
             txtAnalizarSin.setText("Analisis realizado correctamente");
             txtAnalizarSin.setForeground(new Color(25, 111, 61));
-            
+
             btnGenIntermedio.setEnabled(true);
         } catch (Exception ex) {
             Symbol sym = s.getS();
             txtAnalizarSin.setText("Error de sintaxis. Linea: " + (sym.right + 1) + " Columna: " + (sym.left + 1) + ", Texto: \"" + sym.value + "\"");
             txtAnalizarSin.setForeground(Color.red);
-            
+
             btnGenIntermedio.setEnabled(false);
             btnGenEnsamblador.setEnabled(false);
             btnGenObjeto.setEnabled(false);
@@ -526,38 +530,32 @@ public class FrmAnalizador extends javax.swing.JFrame {
     private void btnGenIntermedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenIntermedioActionPerformed
         //Escribir Archivo
         FileWriter fw = null;
-        
-        try
-        {
+
+        try {
             Path archivo = Paths.get("Programa.cpp");
             Files.delete(archivo);
 
-            fw = new FileWriter("Programa.cpp",true);
+            fw = new FileWriter("Programa.cpp", true);
             fw.flush();
             fw.write(Resultado.getText());
 
-        }
-        catch (IOException ex) 
-            {
-                ex.printStackTrace();
-            } 
-            finally 
-            {
-               if (fw!=null)
-               {  
-                   try {
-                       fw.close();
-                   } catch (IOException ex) {
-                       Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-                   }
-               }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (fw != null) {
+                try {
+                    fw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        
+        }
+
         // Ejecución
         try {
-            
-            String[] array = { "cmd", "/C", "start", 
-            "1_Intermedio.bat" };
+
+            String[] array = {"cmd", "/C", "start",
+                "1_Intermedio.bat"};
             Runtime.getRuntime().exec(array);
             System.out.println("1. Creación de Archivo intermedio.");
             txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n1. Creación de Archivo intermedio.");
@@ -568,13 +566,13 @@ public class FrmAnalizador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenIntermedioActionPerformed
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
-       
+
         try {
-            
-            String[] array = { "cmd", "/C", "start", 
-            "5_Correr.bat" };
+
+            String[] array = {"cmd", "/C", "start",
+                "5_Correr.bat"};
             Runtime.getRuntime().exec(array);
-            
+
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -585,24 +583,24 @@ public class FrmAnalizador extends javax.swing.JFrame {
     private void btnGenEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEnsambladorActionPerformed
 
         try {
-            
-            String[] array = { "cmd", "/C", "start", 
-            "2_Ensamblador.bat" };
+
+            String[] array = {"cmd", "/C", "start",
+                "2_Ensamblador.bat"};
             Runtime.getRuntime().exec(array);
             System.out.println("2. Creación de Ensamblador.");
             txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n2. Creación de Ensamblador.");
             btnGenObjeto.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+        }
     }//GEN-LAST:event_btnGenEnsambladorActionPerformed
 
     private void btnGenObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenObjetoActionPerformed
-      
+
         try {
-            
-            String[] array = { "cmd", "/C", "start", 
-            "3_Objeto.bat" };
+
+            String[] array = {"cmd", "/C", "start",
+                "3_Objeto.bat"};
             Runtime.getRuntime().exec(array);
             System.out.println("3. Creación de Objetos.");
             txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n3. Creación de Objetos.");
@@ -610,24 +608,32 @@ public class FrmAnalizador extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnGenObjetoActionPerformed
 
     private void btnGenEjecutableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenEjecutableActionPerformed
-      
+
         try {
-            
-            String[] array = { "cmd", "/C", "start", 
-            "4_Ejecutable.bat" };
+
+            String[] array = {"cmd", "/C", "start",
+                "4_Ejecutable.bat"};
             Runtime.getRuntime().exec(array);
             System.out.println("4. Creación de Ejecutable.");
             txtAnalizarSin.setText(txtAnalizarSin.getText() + "\n4. Creación de Ejecutable.");
             btnEjecutar.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
+        }
+
     }//GEN-LAST:event_btnGenEjecutableActionPerformed
+
+    private void ResultadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ResultadoKeyTyped
+        btnGenIntermedio.setEnabled(false);
+        btnGenEnsamblador.setEnabled(false);
+        btnGenObjeto.setEnabled(false);
+        btnGenEjecutable.setEnabled(false);
+        btnEjecutar.setEnabled(false);
+    }//GEN-LAST:event_ResultadoKeyTyped
 
     /**
      * @param args the command line arguments

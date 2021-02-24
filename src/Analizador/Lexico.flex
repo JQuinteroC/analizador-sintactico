@@ -28,8 +28,6 @@ espacio=[ ,\t,\r]+
 /* Comillas */
 /* Dobles */
 ( "\"" ) {lexemas=yytext(); return Comillas;}
-/* Simples */
-( "\'" ) {lexemas=yytext(); return Comillas_s;}
 /* Backslash */
 ( "\\" ) {lexemas=yytext(); return Back;}
 
@@ -145,11 +143,6 @@ espacio=[ ,\t,\r]+
 ( "{" ) {lexemas=yytext(); return Llave_a;}
 /* Llave de cierre */
 ( "}" ) {lexemas=yytext(); return Llave_c;}
-
-/* Corchete de apertura */
-( "[" ) {lexemas = yytext(); return Corchete_a;}
-/* Corchete de cierre */
-( "]" ) {lexemas = yytext(); return Corchete_c;}
 
 /* Marcador de importación */
 ( #include ) {lexemas=yytext(); return Include;}
